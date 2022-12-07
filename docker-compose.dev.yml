@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  frontend:
+    image: lblod/frontend-organization-portal:latest
+    restart: "no"
+  identifier:
+    restart: "no"
+    ports:
+      - "80:80"
+  dispatcher:
+    restart: "no"
+  triplestore:
+    ports:
+      - "8890:8890"
+    restart: "no"
+  db:
+    restart: "no"
+  migrations:
+    volumes:
+      - ./config/dev-migrations:/data/migrations/dev/
+    restart: "no"
+  resource:
+    restart: "no"
+  cache:
+    restart: "no"
+  deltanotifier:
+    restart: "no"
+  mocklogin:
+    image: lblod/mock-login-service:latest
+    links:
+      - db:database
+    restart: "no"
+  sink:
+    restart: "no"
+  login:
+    restart: "no"
+  accountdetail:
+    restart: "no"
+  uri-info:
+    restart: "no"
+  file:
+    restart: "no"
+  error-report-service:
+    restart: "no"
