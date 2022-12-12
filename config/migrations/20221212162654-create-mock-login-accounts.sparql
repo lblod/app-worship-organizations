@@ -1,0 +1,61 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX mandaat: <http://data.vlaanderen.be/ns/mandaat#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX erediensten: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX org: <http://www.w3.org/ns/org#>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?persoon a foaf:Person;
+      mu:uuid ?uuidPersoon;
+      foaf:firstName ?classificationLabel;
+      foaf:familyName ?naam;
+      foaf:member ?bestuurseenheid ;
+      foaf:account ?account.
+    ?account a foaf:OnlineAccount;
+      mu:uuid ?uuidAccount;
+      foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
+      ext:sessionRole "EredienstenOrganisatiesGebruiker".
+  }
+  GRAPH ?orgGraph {
+    ?persoon a foaf:Person;
+      mu:uuid ?uuidPersoon;
+      foaf:firstName ?classificationLabel;
+      foaf:familyName ?naam;
+      foaf:member ?bestuurseenheid ;
+      foaf:account ?account.
+    ?account a foaf:OnlineAccount;
+      mu:uuid ?uuidAccount;
+      foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
+      ext:sessionRole "EredienstenOrganisatiesGebruiker".
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    VALUES ?classification {
+      <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/36372fad-0358-499c-a4e3-f412d2eae213> # RO
+      <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> # Gemeente
+      <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000> # Provincie
+    }
+
+    ?bestuurseenheid
+      a besluit:Bestuurseenheid;
+      mu:uuid ?uuidBestuurseenheid;
+      org:classification ?classification;
+      org:classification/skos:prefLabel ?classificationLabel;
+      skos:prefLabel ?naam.
+    FILTER NOT EXISTS {
+      ?persoon foaf:member ?bestuurseenheid .
+    }
+
+    BIND(CONCAT(?classificationLabel, " ", ?naam) as ?volledigeNaam)
+    BIND(MD5(?volledigeNaam) as ?uuidPersoon)
+    BIND(MD5(CONCAT(?volledigeNaam,"ACCOUNT")) as ?uuidAccount)
+    BIND(IRI(CONCAT("http://data.lblod.info/id/persoon/", ?uuidPersoon)) AS ?persoon)
+    BIND(IRI(CONCAT("http://data.lblod.info/id/account/", ?uuidAccount)) AS ?account)
+    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidBestuurseenheid)) AS ?orgGraph)
+  }
+}
