@@ -21,18 +21,6 @@ INSERT {
       foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
       ext:sessionRole "EredienstenOrganisatiesGebruiker".
   }
-  GRAPH ?orgGraph {
-    ?persoon a foaf:Person;
-      mu:uuid ?uuidPersoon;
-      foaf:firstName ?classificationLabel;
-      foaf:familyName ?naam;
-      foaf:member ?bestuurseenheid ;
-      foaf:account ?account.
-    ?account a foaf:OnlineAccount;
-      mu:uuid ?uuidAccount;
-      foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-      ext:sessionRole "EredienstenOrganisatiesGebruiker".
-  }
 } WHERE {
   GRAPH <http://mu.semte.ch/graphs/public> {
     VALUES ?classification {
@@ -56,6 +44,5 @@ INSERT {
     BIND(MD5(CONCAT(?volledigeNaam,"ACCOUNT")) as ?uuidAccount)
     BIND(IRI(CONCAT("http://data.lblod.info/id/persoon/", ?uuidPersoon)) AS ?persoon)
     BIND(IRI(CONCAT("http://data.lblod.info/id/account/", ?uuidAccount)) AS ?account)
-    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidBestuurseenheid)) AS ?orgGraph)
   }
 }
