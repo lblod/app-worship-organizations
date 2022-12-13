@@ -1,0 +1,43 @@
+# RULE THREE
+# Provinces will see the islamic or the orthodox worship services which they have a link
+# (toezichthoudend or mede-financierend) to in the module 'betrokken lokale besturen'
+
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+
+INSERT {
+  GRAPH ?orgGraph {
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+    ?betrokke ?pbetrokke ?obetrokke .
+  }
+} WHERE {
+  GRAPH ?g {
+    VALUES ?typebetrokkenheid {
+      <http://lblod.data.gift/concepts/ac400cc9f135ac7873fb3e551ec738c1> # toezichthoudend
+      <http://lblod.data.gift/concepts/86fcbbbff764f1cba4c7e10dbbae578e> # mede-financierend
+    }
+
+    VALUES ?typeEredienst {
+      <http://lblod.data.gift/concepts/84bcd6896f575bae4857ff8d2764bed8> # orthodox
+      <http://lblod.data.gift/concepts/9d8bd472a00bf0a5c7b7186606365a52> # islamitisch
+    }
+
+    ?s a besluit:Bestuurseenheid ;
+      mu:uuid ?uuidBestuurseenheid ;
+      org:classification <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000> ; # Provincie
+      ere:betrokkenBestuur ?betrokke .
+
+    ?betrokke <http://data.lblod.info/vocabularies/erediensten/typebetrokkenheid> ?typebetrokkenheid ;
+      org:organization ?worshipAdminUnit ;
+      ?pbetrokke ?obetrokke .
+
+    ?worshipAdminUnit ere:typeEredienst ?typeEredienst ;
+      ?pworshipAdminUnit ?oworshipAdminUnit .
+
+    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidBestuurseenheid, "/EredienstenOrganisatiesGebruiker")) AS ?orgGraph)
+  }
+}

@@ -1,0 +1,17 @@
+- Move primary site data to org graphs
+     ?worshipAdminUnit org:hasPrimarySite ?primarySite ;
+      ?pworshipAdminUnit ?oworshipAdminUnit .
+
+    ?primarySite organisatie:bestaatUit ?address ;
+      ?pprimarySite ?oprimarySite .
+    
+    ?address ?paddress ?oaddress .
+
+    OPTIONAL {
+      ?primarySite org:siteAddress ?contactPoint .
+      ?contactPoint ?pcontactPoint ?ocontactPoint .
+    }
+
+- Delete worship admin + their data from public graph
+
+- ONLY THEN check if it works

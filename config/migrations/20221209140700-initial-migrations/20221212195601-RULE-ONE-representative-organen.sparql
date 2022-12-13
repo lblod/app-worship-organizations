@@ -1,0 +1,25 @@
+# RULE ONE
+# Representative organs can see data from organizations they are mother organization of
+
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+
+INSERT {
+  GRAPH ?orgGraph {
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?s a ere:RepresentatiefOrgaan ;
+      mu:uuid ?uuidRO ;
+      org:linkedTo ?worshipAdminUnit .
+
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+
+    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidRO, "/EredienstenOrganisatiesGebruiker")) AS ?orgGraph)
+  }
+}

@@ -1,0 +1,17 @@
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    VALUES ?type {
+      ere:BestuurVanDeEredienst
+      ere:CentraalBestuurVanDeEredienst
+    }
+
+    ?worshipAdminUnit a ?type ;
+      ?pworshipAdminUnit ?oworshipAdminUnit .
+  }
+}
