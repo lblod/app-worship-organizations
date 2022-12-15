@@ -1,0 +1,94 @@
+@prefix lblodOrg: <http://lblod.data.gift/vocabularies/organisatie/> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://lblod.data.gift/concepts/04d3b5325f2ebc5eaf96849519af4254> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "04d3b5325f2ebc5eaf96849519af4254" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Rector" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/17e7177aba2596705ad3c209019c729a> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "17e7177aba2596705ad3c209019c729a" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Officiërend bedienaar" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/27b3d149dd2a726effe749572177682e> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "27b3d149dd2a726effe749572177682e" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Rabbijn" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/59837b12c14f215a4efadae950be0072> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "59837b12c14f215a4efadae950be0072" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Medepastoor" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/5c7fefe1b921dfd4c550924bb7a9331d> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "5c7fefe1b921dfd4c550924bb7a9331d" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Pastoor" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/5ebb798bd59c3b48c25116032caa02b7> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "5ebb798bd59c3b48c25116032caa02b7" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Derde Imam in rang" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/691cd70183d5b234ec573800e2aa11e7> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "691cd70183d5b234ec573800e2aa11e7" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Vervanger" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/83d50e9184ae4a628851370079d162f6> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "83d50e9184ae4a628851370079d162f6" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Predikant" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/84b3a2321d1b69b6de782bb04e1a6862> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "84b3a2321d1b69b6de782bb04e1a6862" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Aangesteld priester" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/c4a3fd586211b17b06f574885e23f355> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "c4a3fd586211b17b06f574885e23f355" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Tweede Imam in rang" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/e357bc8f4cc3a694fde2239748768a22> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "e357bc8f4cc3a694fde2239748768a22" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Eerste Imam in rang" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/ea58c73d9b4fc8a24a4b3eaa73a33995> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "ea58c73d9b4fc8a24a4b3eaa73a33995" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Coördinator" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/efbf2ff50b5c4f693f129ac03319c4f2> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "efbf2ff50b5c4f693f129ac03319c4f2" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Priester" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/f274cb5a-ba44-4931-a1a8-38ec34513215> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "f274cb5a-ba44-4931-a1a8-38ec34513215" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Diaken" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
+<http://lblod.data.gift/concepts/fa4191f9d7050fe62ec3fc0e16541711> a lblodOrg:EredienstBeroepen ;
+    mu:uuid "fa4191f9d7050fe62ec3fc0e16541711" ;
+    skos:inScheme <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> ;
+    skos:prefLabel "Kapelaan" ;
+    skos:topConceptOf <http://lblod.data.gift/concept-schemes/0637cccd657df25049af6c4580c6b2be> .
+
