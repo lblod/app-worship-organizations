@@ -154,3 +154,38 @@ services:
     image: lblod/error-report-service:0.1.0
     links:
       - db:database
+  reasoner:
+    image: bdevloed/mu-reasoner
+    volumes:
+      - ./config/reasoner:/config
+  positions-dispatcher:
+    image: lblod/worship-submissions-graph-dispatcher-service:latest # TODO update with released version
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+################################################################################
+# DELTAS
+################################################################################
+  positions-consumer:
+    image: bdevloed/delta-consumer:fetch
+    environment:
+      DCR_SYNC_BASE_URL: 'https://loket.lblod.info/'
+      DCR_SERVICE_NAME: 'positions-consumer'
+      DCR_SYNC_FILES_PATH: '/sync/positions/files'
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/PositionsCacheGraphDump"
+      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/positions"
+      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/positions-consumer"
+      DCR_DISABLE_INITIAL_SYNC: 'true'
+      DCR_KEEP_DELTA_FILES: 'true'
+      DCR_DELTA_FILE_FOLDER: '/consumer-files'
+      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/positionsFileSyncing"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'true'
+      INGEST_GRAPH: 'http://mu.semte.ch/graphs/temp/for-dispatch'
+    volumes:
+      - ./config/positions-consumer/positions-dispatching:/config/triples-dispatching/custom-dispatching
+      - ./data/files/consumer-files/positions:/consumer-files/
+    links:
+      - db:database
+    restart: always
+    logging: *default-logging

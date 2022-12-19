@@ -43,3 +43,9 @@ services:
     restart: "no"
   error-report-service:
     restart: "no"
+  reasoner:
+    restart: "no"
+  positions-dispatcher:
+    restart: "no"
+  positions-consumer:
+    restart: "no"
