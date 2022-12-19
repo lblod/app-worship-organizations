@@ -47,5 +47,5 @@ services:
     restart: "no"
   positions-dispatcher:
     restart: "no"
-  positions-consumer:
+  worship-services-sensitive-consumer:
     restart: "no"
