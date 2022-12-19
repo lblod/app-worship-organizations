@@ -182,7 +182,7 @@ services:
       DCR_DISABLE_INITIAL_SYNC: 'true'
       DCR_KEEP_DELTA_FILES: 'true'
       DCR_DELTA_FILE_FOLDER: '/consumer-files'
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'true'
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'false'
       INGEST_GRAPH: 'http://mu.semte.ch/graphs/temp/for-dispatch'
     volumes:
       - ./config/worship-services-sensitive-consumer/positions-dispatching:/config/triples-dispatching/custom-dispatching
