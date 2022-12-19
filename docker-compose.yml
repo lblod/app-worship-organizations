@@ -159,7 +159,7 @@ services:
     volumes:
       - ./config/reasoner:/config
   positions-dispatcher:
-    image: lblod/worship-submissions-graph-dispatcher-service:0.0.1
+    image: lblod/worship-positions-graph-dispatcher-service:0.0.1
     links:
       - db:database
     labels:

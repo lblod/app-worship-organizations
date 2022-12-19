@@ -28,6 +28,8 @@ async function dispatch(lib, data) {
   const { mu, muAuthSudo, fetch } = lib;
   const { termObjectChangeSets } = data;
 
+  console.log(`Using ${endpoint} to insert triples`);
+
   for (let { deletes, inserts } of termObjectChangeSets) {
     const deleteStatements = deletes.map(o => `${o.subject} ${o.predicate} ${o.object}.`);
 
