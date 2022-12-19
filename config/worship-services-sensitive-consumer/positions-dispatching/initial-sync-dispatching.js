@@ -7,6 +7,7 @@ const {
   SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
   INGEST_GRAPH
 } = require('./config');
+
 const endpoint = process.env.MU_SPARQL_ENDPOINT;
 
 /**
@@ -31,7 +32,14 @@ async function dispatch(lib, data) {
   if (termObjects.length) {
     originalInsertTriples = termObjects.map(o => `${o.subject} ${o.predicate} ${o.object}.`)
 
-    const transformedInsertTriples = await transformStatements(fetch, originalRegularInsertTriples);
+    let transformedInsertTriples;
+    try {
+      transformedInsertTriples = await transformStatements(fetch, originalInsertTriples);
+    } catch (e) {
+      console.log('Something went wrong during the reasoning:', e);
+      throw e;
+    }
+
     await batchedDbUpdate(
       muAuthSudo.updateSudo,
       INGEST_GRAPH,
@@ -42,7 +50,7 @@ async function dispatch(lib, data) {
       MAX_DB_RETRY_ATTEMPTS,
       SLEEP_BETWEEN_BATCHES,
       SLEEP_TIME_AFTER_FAILED_DB_OPERATION
-    )
+    );
   }
 }
 

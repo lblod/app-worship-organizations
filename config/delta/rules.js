@@ -21,7 +21,7 @@ export default [
     match: {
       graph: {
         type: 'uri',
-        value: 'http://mu.semte.ch/graphs/tmp/dispatch-positions'
+        value: 'http://mu.semte.ch/graphs/temp/for-dispatch'
       }
     },
     callback: {

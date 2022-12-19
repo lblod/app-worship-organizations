@@ -160,6 +160,8 @@ services:
       - ./config/reasoner:/config
   positions-dispatcher:
     image: lblod/worship-submissions-graph-dispatcher-service:latest # TODO update with released version
+    links:
+      - db:database
     labels:
       - "logging=true"
     restart: always

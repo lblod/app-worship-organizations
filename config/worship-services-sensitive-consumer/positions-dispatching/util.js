@@ -37,7 +37,8 @@ ${batch}
   }
 }
 
-async function operationWithRetry(callback,
+async function operationWithRetry(
+  callback,
   attempt,
   maxAttempts,
   sleepTimeOnFail) {
@@ -66,14 +67,26 @@ async function operationWithRetry(callback,
  * Send triples to reasoning service for conversion
  *
  */
-function transformTriples(fetch, triples) {
-  return operationWithRetry(preProcess(fetch, triples), 0,
-    MAX_REASONING_RETRY_ATTEMPTS, SLEEP_TIME_AFTER_FAILED_REASONING_OPERATION)
-    .then(preprocessed => operationWithRetry(mainConversion(fetch, preprocessed), 0,
-      MAX_REASONING_RETRY_ATTEMPTS, SLEEP_TIME_AFTER_FAILED_REASONING_OPERATION));
+async function transformTriples(fetch, triples) {
+  const processFlowCall = async () => {
+    return await processFlow(fetch, triples)
+  };
+
+  return await operationWithRetry(
+    processFlowCall,
+    0,
+    MAX_REASONING_RETRY_ATTEMPTS,
+    SLEEP_TIME_AFTER_FAILED_REASONING_OPERATION
+  );
 }
 
-function preProcess(fetch, triples) {
+async function processFlow(fetch, triples) {
+  const preProcessedTriples = await preProcess(fetch, triples);
+  const processedTriples = await mainConversion(fetch, preProcessedTriples);
+  return processedTriples;
+}
+
+async function preProcess(fetch, triples) {
   let formdata = new URLSearchParams();
   formdata.append("data", triples);
 
@@ -83,11 +96,16 @@ function preProcess(fetch, triples) {
     redirect: 'follow'
   };
 
-  return fetch("http://reasoner/reason/dl2op/preprocess", requestOptions)
-    .then(response => response.text());
+  const response = await fetch("http://reasoner/reason/dl2op/preprocess", requestOptions);
+
+  if (response.ok) {
+    return response.text();
+  } else {
+    throw `Error while reasoning (pre-processing): ${response.status} ${response.statusText}`;
+  }
 }
 
-function mainConversion(fetch, triples) {
+async function mainConversion(fetch, triples) {
   let formdata = new URLSearchParams();
   formdata.append("data", triples);
 
@@ -97,22 +115,24 @@ function mainConversion(fetch, triples) {
     redirect: 'follow'
   };
 
-  return fetch("http://reasoner/reason/dl2op/main", requestOptions)
-    .then(response => response.text());
+  const response = await fetch("http://reasoner/reason/dl2op/main", requestOptions);
+
+  if (response.ok) {
+    return response.text();
+  } else {
+    throw `Error while reasoning (pre-processing): ${response.status} ${response.statusText}`;
+  }
 }
 
-function transformStatements(fetch, triples) {
-  return transformTriples(fetch, triples.join('\n')).then(
-    graph => {
-      statements = graph.replace(/\n{2,}/g, '').split('\n')
-      console.log(`CONVERSION: FROM ${triples.length} triples to ${statements.length}`)
-      return statements
-    }
-  )
+async function transformStatements(fetch, triples) {
+  const transformedTriples = await transformTriples(fetch, triples.join('\n'));
+  console.log('ALORS ?', transformedTriples);
+  statements = transformedTriples.replace(/\n{2,}/g, '').split('\n');
+  console.log(`CONVERSION: FROM ${triples.length} triples to ${statements.length}`);
+  return statements;
 }
 
 module.exports = {
   batchedDbUpdate,
-  partition,
   transformStatements
 };

@@ -7,6 +7,8 @@ const {
   INGEST_GRAPH
 } = require('./config');
 
+const endpoint = process.env.MU_SPARQL_ENDPOINT;
+
 /**
 * Dispatch the fetched information to a target graph.
 * Note: <share://file/data> will be ADDED to it's own graph.
@@ -30,13 +32,20 @@ async function dispatch(lib, data) {
     const deleteStatements = deletes.map(o => `${o.subject} ${o.predicate} ${o.object}.`);
 
     if (deleteStatements.length) {
-      const transformedDeleteTriples = await transformStatements(fetch, deleteStatements);
-      batchedDbUpdate(
+      let transformedDeleteTriples;
+      try {
+        transformedDeleteTriples = await transformStatements(fetch, deleteStatements);
+      } catch (e) {
+        console.log('Something went wrong during the reasoning:', e);
+        throw e;
+      }
+
+      await batchedDbUpdate(
         muAuthSudo.updateSudo,
         INGEST_GRAPH,
         transformedDeleteTriples,
         { 'mu-call-scope-id': 'http://redpencil.data.gift/id/concept/muScope/deltas/write-for-dispatch' },
-        process.env.MU_SPARQL_ENDPOINT, //Note: this is the default endpoint through auth
+        endpoint,
         BATCH_SIZE,
         MAX_DB_RETRY_ATTEMPTS,
         SLEEP_BETWEEN_BATCHES,
@@ -47,13 +56,20 @@ async function dispatch(lib, data) {
 
     const insertStatements = inserts.map(o => `${o.subject} ${o.predicate} ${o.object}.`);
     if (insertStatements.length) {
-      const transformedInsertTriples = await transformStatements(fetch, insertStatements);
+      let transformedInsertTriples;
+      try {
+        transformedInsertTriples = await transformStatements(fetch, insertStatements);
+      } catch (e) {
+        console.log('Something went wrong during the reasoning:', e);
+        throw e;
+      }
+
       await batchedDbUpdate(
         muAuthSudo.updateSudo,
         INGEST_GRAPH,
         transformedInsertTriples,
-        {},
-        process.env.MU_SPARQL_ENDPOINT, //Note: this is the default endpoint through auth
+        { 'mu-call-scope-id': 'http://redpencil.data.gift/id/concept/muScope/deltas/write-for-dispatch' },
+        endpoint,
         BATCH_SIZE,
         MAX_DB_RETRY_ATTEMPTS,
         SLEEP_BETWEEN_BATCHES,
