@@ -170,7 +170,7 @@ services:
 # DELTAS
 ################################################################################
   worship-services-sensitive-consumer:
-    image: bdevloed/delta-consumer:fetch
+    image: lblod/delta-consumer:0.0.14
     environment:
       DCR_SYNC_BASE_URL: 'https://loket.lblod.info/'
       DCR_SERVICE_NAME: 'worship-services-sensitive-consumer'
