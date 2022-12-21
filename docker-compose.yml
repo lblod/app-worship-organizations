@@ -1,7 +1,6 @@
-version: '3.4'
+version: "3.4"
 
-x-logging:
-  &default-logging
+x-logging: &default-logging
   driver: "json-file"
   options:
     max-size: "10m"
@@ -25,7 +24,7 @@ services:
   identifier:
     image: semtech/mu-identifier:1.9.1
     environment:
-      DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: "[{\"variables\":[],\"name\":\"public\"}]"
+      DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: '[{"variables":[],"name":"public"}]'
       SESSION_COOKIE_SECURE: "on"
     labels:
       - "logging=true"
@@ -166,24 +165,25 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-################################################################################
-# DELTAS
-################################################################################
+  ################################################################################
+  # DELTAS
+  ################################################################################
   worship-services-sensitive-consumer:
     image: lblod/delta-consumer:0.0.14
     environment:
-      DCR_SYNC_BASE_URL: 'https://loket.lblod.info/'
-      DCR_SERVICE_NAME: 'worship-services-sensitive-consumer'
-      DCR_SYNC_FILES_PATH: '/sync/worship-services-sensitive/files'
+      DCR_SYNC_BASE_URL: "https://loket.lblod.info/"
+      DCR_SERVICE_NAME: "worship-services-sensitive-consumer"
+      DCR_SYNC_FILES_PATH: "/sync/worship-services-sensitive/files"
       DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/WorshipServicesSensitiveCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/wsSensitive"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/wsSensitiveDeltaFileSyncing"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/worship-services-sensitive-consumer"
-      DCR_DISABLE_INITIAL_SYNC: 'true'
-      DCR_KEEP_DELTA_FILES: 'true'
-      DCR_DELTA_FILE_FOLDER: '/consumer-files'
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'false'
-      INGEST_GRAPH: 'http://mu.semte.ch/graphs/temp/for-dispatch'
+      DCR_DISABLE_INITIAL_SYNC: "true"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "false"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/temp/for-dispatch"
+      FILE_SYNC_GRAPH: "http://mu.semte.ch/graphs/temp/original-physical-files-data"
     volumes:
       - ./config/worship-services-sensitive-consumer/positions-dispatching:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/worship-services-sensitive:/consumer-files/
