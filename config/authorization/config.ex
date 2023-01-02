@@ -106,7 +106,7 @@ defmodule Acl.UserGroups.Config do
       %GroupSpec{
         name: "readers",
         useage: [:read],
-      access: access_by_role( "EredienstenOrganisatiesGebruiker" ),
+        access: access_by_role( "EredienstenOrganisatiesGebruiker" ),
         graphs: [ %GraphSpec{
                     graph: "http://mu.semte.ch/graphs/organizations/",
                     constraint: %ResourceConstraint{
