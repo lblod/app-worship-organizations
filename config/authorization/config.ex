@@ -106,7 +106,17 @@ defmodule Acl.UserGroups.Config do
       %GroupSpec{
         name: "readers",
         useage: [:read],
-        access: access_by_role( "EredienstenOrganisatiesGebruiker" ),
+        # **Explanations on the chosen role**
+        # - We reuse scopes firstly defined in Loket to handle worship data. When the name of
+        #     the role has been chosen, we didn't know it was going to be use in multiple apps.
+        # - In Loket we have two roles for worship data :
+        #     - LoketLB-eredienstMandaatGebruiker for mandatarissen
+        #     - LoketLB-eredienstBedienaarGebruiker for ministers
+        #   We assume here that for now, people who are given access to one will also be given
+        #     access to the other. We arbitrarily use LoketLB-eredienstMandaatGebruiker for this application.
+        #     If later on we need to split them, it is still possible to do so by updating this configuration
+        #     and migrating data to the proper graphs.
+        access: access_by_role( "LoketLB-eredienstMandaatGebruiker" ),
         graphs: [ %GraphSpec{
                     graph: "http://mu.semte.ch/graphs/organizations/",
                     constraint: %ResourceConstraint{
