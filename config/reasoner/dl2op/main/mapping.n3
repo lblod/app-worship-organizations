@@ -680,3 +680,34 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 } => {
   ?s persoon:volledigeNaam ?o
 }.
+
+# Tijdspecialisatie
+{
+  {
+    ?s mandaat:isTijdspecialisatieVan ?o.
+  } e:becomes {
+    ?s generiek:isTijdspecialisatieVan ?o.
+  }
+} => {
+  ?s generiek:isTijdspecialisatieVan ?o.
+}.
+
+# Inverse properties
+{
+  ?s org:holds ?o.
+} => {
+  ?o org:heldBy ?s.
+}.
+
+{
+  ?s org:heldBy ?o.
+} => {
+  ?o org:holds ?s.
+}.
+
+# Retract empty strings
+{
+  {
+    ?s ?p ""
+  } e:becomes {}.
+} => {}.
