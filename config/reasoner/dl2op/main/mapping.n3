@@ -1,4 +1,5 @@
 PREFIX : <#>
+PREFIX adms: <http://www.w3.org/ns/adms#>
 PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
 PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
 PREFIX crypto: <http://www.w3.org/2000/10/swap/crypto#>
@@ -164,6 +165,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
   ?structuredIdentifier a generiek:GestructureerdeIdentificator ;
     mu:uuid ?uuid ;
     generiek:lokaleIdentificator ?notation
+}.
+
+# identifier property in the export is only used for RRN.
+{
+  {
+    ?s adms:identifier ?o
+  } e:becomes {
+    ?s persoon:registratie ?o
+  }
+} => {
+  ?s persoon:registratie ?o
 }.
 
 
