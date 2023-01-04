@@ -156,7 +156,7 @@ services:
     volumes:
       - ./config/reasoner:/config
   positions-dispatcher:
-    image: lblod/worship-positions-graph-dispatcher-service:0.0.2
+    image: lblod/worship-positions-graph-dispatcher-service:0.0.3
     links:
       - db:database
     labels:
