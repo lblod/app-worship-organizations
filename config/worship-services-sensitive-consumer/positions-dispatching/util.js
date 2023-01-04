@@ -37,6 +37,39 @@ ${batch}
   }
 }
 
+async function deleteFromAllGraphs(muUpdate,
+  triples,
+  extraHeaders,
+  endpoint,
+  maxAttempts,
+  sleepBetweenBatches = 1000,
+  sleepTimeOnFail = 1000,
+) {
+
+  for (triple in triples) {
+
+    console.log(`Deleting a triple from all graphs in triplestore`);
+
+    const deleteCall = async () => {
+      await muUpdate(`
+      DELETE {
+        GRAPH ?g {
+          ${triple}
+        }
+      } WHERE {
+        GRAPH ?g {
+          ${triple}
+        }
+      }
+      `, extraHeaders, endpoint);
+    };
+
+    await operationWithRetry(deleteCall, 0, maxAttempts, sleepTimeOnFail);
+    console.log(`Sleeping before next query execution: ${sleepBetweenBatches}`);
+    await new Promise(r => setTimeout(r, sleepBetweenBatches));
+  }
+}
+
 async function operationWithRetry(callback,
   attempt,
   maxAttempts,
@@ -114,6 +147,7 @@ function transformStatements(fetch, triples) {
 
 module.exports = {
   batchedDbUpdate,
+  deleteFromAllGraphs,
   partition,
   transformStatements
 };
