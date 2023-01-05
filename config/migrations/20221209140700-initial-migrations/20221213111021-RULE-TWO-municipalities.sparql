@@ -26,6 +26,6 @@ INSERT {
 
     ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
 
-    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidBestuurseenheid, "/LoketLB-eredienstMandaatGebruiker")) AS ?orgGraph)
+    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidBestuurseenheid, "/LoketLB-eredienstOrganisatiesGebruiker")) AS ?orgGraph)
   }
 }
