@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   frontend:
-    image: lblod/frontend-organization-portal:latest
+    image: lblod/frontend-worship-organizations:latest
     restart: "no"
   identifier:
     restart: "no"
