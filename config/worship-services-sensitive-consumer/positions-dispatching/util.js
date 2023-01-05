@@ -46,7 +46,7 @@ async function deleteFromAllGraphs(muUpdate,
   sleepTimeOnFail = 1000,
 ) {
 
-  for (triple in triples) {
+  for (const triple of triples) {
 
     console.log(`Deleting a triple from all graphs in triplestore`);
 
