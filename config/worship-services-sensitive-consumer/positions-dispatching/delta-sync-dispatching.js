@@ -1,13 +1,10 @@
-const { transformStatements, batchedDbUpdate, partition, deleteFromAllGraphs } = require('./util');
-const { BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
-  DIRECT_DATABASE_ENDPOINT,
-  MU_CALL_SCOPE_ID_INITIAL_SYNC,
+const { transformStatements, batchedDbUpdate, deleteFromAllGraphs } = require('./util');
+const {
   BATCH_SIZE,
   MAX_DB_RETRY_ATTEMPTS,
   SLEEP_BETWEEN_BATCHES,
   SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
-  INGEST_GRAPH,
-  FILE_SYNC_GRAPH
+  INGEST_GRAPH
 } = require('./config');
 
 /**

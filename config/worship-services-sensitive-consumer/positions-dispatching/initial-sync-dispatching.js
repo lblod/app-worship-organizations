@@ -1,4 +1,4 @@
-const { transformStatements, batchedDbUpdate, partition } = require('./util');
+const { transformStatements, batchedDbUpdate } = require('./util');
 const { BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
   DIRECT_DATABASE_ENDPOINT,
   MU_CALL_SCOPE_ID_INITIAL_SYNC,
@@ -6,8 +6,7 @@ const { BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
   MAX_DB_RETRY_ATTEMPTS,
   SLEEP_BETWEEN_BATCHES,
   SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
-  INGEST_GRAPH,
-  FILE_SYNC_GRAPH
+  INGEST_GRAPH
 } = require('./config');
 const endpoint = BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES ? DIRECT_DATABASE_ENDPOINT : process.env.MU_SPARQL_ENDPOINT;
 
