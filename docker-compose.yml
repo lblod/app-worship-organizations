@@ -152,7 +152,7 @@ services:
     links:
       - db:database
   reasoner:
-    image: bdevloed/mu-reasoner
+    image: eyereasoner/reasoning-service:1.0.0
     volumes:
       - ./config/reasoner:/config
   positions-dispatcher:
