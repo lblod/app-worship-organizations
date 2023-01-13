@@ -157,6 +157,8 @@ services:
       - ./config/reasoner:/config
   positions-dispatcher:
     image: lblod/worship-positions-graph-dispatcher-service:0.0.5
+    environment:
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500"
     links:
       - db:database
     labels:
