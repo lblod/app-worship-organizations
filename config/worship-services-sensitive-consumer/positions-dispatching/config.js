@@ -9,7 +9,6 @@ const SLEEP_TIME_AFTER_FAILED_REASONING_OPERATION = parseInt(process.env.SLEEP_T
 const SLEEP_TIME_AFTER_FAILED_DB_OPERATION = parseInt(process.env.SLEEP_TIME_AFTER_FAILED_DB_OPERATION || 60000);
 const INGEST_GRAPH = process.env.INGEST_GRAPH || `http://mu.semte.ch/graphs/organisatieportaal`;
 
-
 if (!process.env.FILE_SYNC_GRAPH)
   throw `Expected 'FILE_SYNC_GRAPH' to be provided.`;
 const FILE_SYNC_GRAPH = process.env.FILE_SYNC_GRAPH;
