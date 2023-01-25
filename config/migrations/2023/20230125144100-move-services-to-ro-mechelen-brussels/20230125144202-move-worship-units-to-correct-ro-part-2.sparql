@@ -1,0 +1,48 @@
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations/b4d22cde910a7b58b6e4d9c1d3b15fbb/LoketLB-eredienstOrganisatiesGebruiker> {
+    ?worshipService ?pworshipService ?oworshipService .
+    ?orgaan ?porgaan ?oorgaan .
+    ?orgaanInTime ?porgaanInTime ?oorgaanInTime .
+    ?primarySite ?pprimarySite ?oprimarySite .
+    ?primarySiteAddress ?pprimarySiteAddress ?oprimarySiteAddress .
+    ?primarySiteContactPoint ?pprimarySiteContactPoint ?oprimarySiteContactPoint .
+  }
+} INSERT {
+  GRAPH <http://mu.semte.ch/graphs/organizations/2089dc85d4ba48a7f28ee4b521af2b26/LoketLB-eredienstOrganisatiesGebruiker> {
+    ?worshipService ?pworshipService ?oworshipService .
+    ?orgaan ?porgaan ?oorgaan .
+    ?orgaanInTime ?porgaanInTime ?oorgaanInTime .
+    ?primarySite ?pprimarySite ?oprimarySite .
+    ?primarySiteAddress ?pprimarySiteAddress ?oprimarySiteAddress .
+    ?primarySiteContactPoint ?pprimarySiteContactPoint ?oprimarySiteContactPoint .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations/b4d22cde910a7b58b6e4d9c1d3b15fbb/LoketLB-eredienstOrganisatiesGebruiker> {
+    VALUES ?worshipService {
+      <http://data.lblod.info/id/centraleBesturenVanDeEredienst/1e79c9d4e55e620ab86d6557b581e4a5>
+      <http://data.lblod.info/id/besturenVanDeEredienst/0cf9e2ba13383363a0dafecd18c39fd4>
+      <http://data.lblod.info/id/besturenVanDeEredienst/3e0d4dbea78e2fa221d0be5037c63066>
+      <http://data.lblod.info/id/besturenVanDeEredienst/6be88677571d7bf7272e10f3d76a5b6e>
+      <http://data.lblod.info/id/besturenVanDeEredienst/1ce3e84e6bc0b7303f45b339b47e8755>
+      <http://data.lblod.info/id/besturenVanDeEredienst/d264e200ccd91eb41f794efc98380f7c>
+    }
+
+    ?worshipService
+      <http://www.w3.org/ns/org#hasPrimarySite> ?primarySite ;
+      ?pworshipService ?oworshipService .
+
+    ?orgaan <http://data.vlaanderen.be/ns/besluit#bestuurt> ?worshipService ;
+      ?porgaan ?oorgaan .
+    
+    ?orgaanInTime <https://data.vlaanderen.be/ns/generiek#isTijdspecialisatieVan> ?orgaan ;
+      ?porgaanInTime ?oorgaanInTime .
+
+    ?primarySite <https://data.vlaanderen.be/ns/organisatie#bestaatUit> ?primarySiteAddress ;
+      <http://www.w3.org/ns/org#siteAddress> ?primarySiteContactPoint ;
+      ?pprimarySite ?oprimarySite .
+
+    ?primarySiteAddress ?pprimarySiteAddress ?oprimarySiteAddress .
+
+    ?primarySiteContactPoint ?pprimarySiteContactPoint ?oprimarySiteContactPoint .
+  }
+}
