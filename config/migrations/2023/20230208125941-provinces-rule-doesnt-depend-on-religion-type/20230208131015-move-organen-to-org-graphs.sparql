@@ -1,0 +1,35 @@
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/tmp-graph-to-import-services> {
+    ?orgaan ?porgaan ?oorgaan .
+    ?orgaanInTime ?porgaanInTime ?oorgaanInTime .
+  }
+} INSERT {
+  GRAPH ?g {
+    ?orgaan ?porgaan ?oorgaan .
+    ?orgaanInTime ?porgaanInTime ?oorgaanInTime .
+  }
+} WHERE {
+  GRAPH ?g {
+    VALUES ?type {
+      ere:BestuurVanDeEredienst
+      ere:CentraalBestuurVanDeEredienst
+    }
+    ?worshipAdminUnit a ?type.
+  }
+
+  GRAPH <http://mu.semte.ch/graphs/tmp-graph-to-import-services> {
+    ?orgaan besluit:bestuurt ?worshipAdminUnit ;
+      ?porgaan ?oorgaan .
+
+    ?orgaanInTime generiek:isTijdspecialisatieVan ?orgaan ;
+      ?porgaanInTime ?oorgaanInTime .
+  }
+  FILTER (?g != <http://mu.semte.ch/graphs/tmp-graph-to-import-services>)
+}
