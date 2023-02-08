@@ -4778,6 +4778,26 @@
     adres:gemeentenaam "Antwerpen" ;
     adres:land "België" .
 
+<http://data.lblod.info/id/adressen/0c928b91c2d52e15172f7acd85b0e1f6> a locn:Address ;
+    mu:uuid "0c928b91c2d52e15172f7acd85b0e1f6" ;
+    locn:adminUnitL2 "Vlaams-Brabant" ;
+    locn:fullAddress "Kolonel Begaultlaan 45, 3012 Leuven" ;
+    locn:postCode "3012" ;
+    locn:thoroughfare "Kolonel Begaultlaan" ;
+    adres:Adresvoorstelling.huisnummer "45" ;
+    adres:gemeentenaam "Leuven" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/0fcb667925ce0f8e80f272c324cf5f11> a locn:Address ;
+    mu:uuid "0fcb667925ce0f8e80f272c324cf5f11" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Van Duyststraat 35, 2100 Antwerpen" ;
+    locn:postCode "2100" ;
+    locn:thoroughfare "Van Duyststraat" ;
+    adres:Adresvoorstelling.huisnummer "35" ;
+    adres:gemeentenaam "Antwerpen" ;
+    adres:land "België" .
+
 <http://data.lblod.info/id/adressen/17ea5530e3989b2cfdb4266de590fd1e> a locn:Address ;
     mu:uuid "17ea5530e3989b2cfdb4266de590fd1e" ;
     locn:adminUnitL2 "West-Vlaanderen" ;
@@ -4788,6 +4808,16 @@
     adres:gemeentenaam "Kortrijk" ;
     adres:land "België" .
 
+<http://data.lblod.info/id/adressen/1aa1edb41463fec0da8aa76f12247bbb> a locn:Address ;
+    mu:uuid "1aa1edb41463fec0da8aa76f12247bbb" ;
+    locn:adminUnitL2 "Vlaams-Brabant" ;
+    locn:fullAddress "Vervoortplaats 17, 3290 Diest" ;
+    locn:postCode "3290" ;
+    locn:thoroughfare "Vervoortplaats" ;
+    adres:Adresvoorstelling.huisnummer "17" ;
+    adres:gemeentenaam "Diest" ;
+    adres:land "België" .
+
 <http://data.lblod.info/id/adressen/1acbdb64d952f71f2f320d2d728156a4> a locn:Address ;
     mu:uuid "1acbdb64d952f71f2f320d2d728156a4" ;
     locn:adminUnitL2 "Oost-Vlaanderen" ;
@@ -4796,6 +4826,16 @@
     locn:thoroughfare "Langestraat" ;
     adres:Adresvoorstelling.huisnummer "204" ;
     adres:gemeentenaam "Gent" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/1b61d62596de68f1d2fc1816e0857927> a locn:Address ;
+    mu:uuid "1b61d62596de68f1d2fc1816e0857927" ;
+    locn:adminUnitL2 "West-Vlaanderen" ;
+    locn:fullAddress "Ezelstraat 85, 8000 Brugge" ;
+    locn:postCode "8000" ;
+    locn:thoroughfare "Ezelstraat" ;
+    adres:Adresvoorstelling.huisnummer "85" ;
+    adres:gemeentenaam "Brugge" ;
     adres:land "België" .
 
 <http://data.lblod.info/id/adressen/23b9dfa35c60c59b9451dab33212ce69> a locn:Address ;
@@ -4816,6 +4856,56 @@
     locn:thoroughfare "Everaertsstraat" ;
     adres:Adresvoorstelling.huisnummer "101" ;
     adres:gemeentenaam "Antwerpen" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/297452a2d660053c648fc24be9a77f0d> a locn:Address ;
+    mu:uuid "297452a2d660053c648fc24be9a77f0d" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Jan Van Gentstraat 11, 2000 Antwerpen" ;
+    locn:postCode "2000" ;
+    locn:thoroughfare "Jan Van Gentstraat" ;
+    adres:Adresvoorstelling.huisnummer "11" ;
+    adres:gemeentenaam "Antwerpen" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/31559361014e4141aa65f80ea0330f6f> a locn:Address ;
+    mu:uuid "31559361014e4141aa65f80ea0330f6f" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Dendermondestraat 34, 2018 Antwerpen" ;
+    locn:postCode "2018" ;
+    locn:thoroughfare "Dendermondestraat" ;
+    adres:Adresvoorstelling.huisnummer "34" ;
+    adres:gemeentenaam "Antwerpen" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/3864d29cd2a822bc0b9db13a6e01f312> a locn:Address ;
+    mu:uuid "3864d29cd2a822bc0b9db13a6e01f312" ;
+    locn:adminUnitL2 "Oost-Vlaanderen" ;
+    locn:fullAddress "Binnenstraat 7, 9300 Aalst" ;
+    locn:postCode "9300" ;
+    locn:thoroughfare "Binnenstraat" ;
+    adres:Adresvoorstelling.huisnummer "7" ;
+    adres:gemeentenaam "Aalst" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/3b30947dc670ef5d683e3186a3541f40> a locn:Address ;
+    mu:uuid "3b30947dc670ef5d683e3186a3541f40" ;
+    locn:adminUnitL2 "Oost-Vlaanderen" ;
+    locn:fullAddress "Hoofdkerkstraat 1, 9000 Gent" ;
+    locn:postCode "9000" ;
+    locn:thoroughfare "Hoofdkerkstraat" ;
+    adres:Adresvoorstelling.huisnummer "1" ;
+    adres:gemeentenaam "Gent" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/3ec838e36feb6da02b2701f1f49ce5b7> a locn:Address ;
+    mu:uuid "3ec838e36feb6da02b2701f1f49ce5b7" ;
+    locn:adminUnitL2 "West-Vlaanderen" ;
+    locn:fullAddress "Romestraat 85, 8400 Oostende" ;
+    locn:postCode "8400" ;
+    locn:thoroughfare "Romestraat" ;
+    adres:Adresvoorstelling.huisnummer "85" ;
+    adres:gemeentenaam "Oostende" ;
     adres:land "België" .
 
 <http://data.lblod.info/id/adressen/627D20201D2B7BB5B2CB04D9> a locn:Address ;
@@ -5597,6 +5687,26 @@
     adres:gemeentenaam "Antwerpen" ;
     adres:verwijstNaar <https://data.vlaanderen.be/id/adres/3918515> .
 
+<http://data.lblod.info/id/adressen/63c916e885e91123c74d70d0517319c7> a locn:Address ;
+    mu:uuid "63c916e885e91123c74d70d0517319c7" ;
+    locn:adminUnitL2 "Limburg" ;
+    locn:fullAddress "Wintergroenstraat 61, 3600 Genk" ;
+    locn:postCode "3600" ;
+    locn:thoroughfare "Wintergroenstraat" ;
+    adres:Adresvoorstelling.huisnummer "61" ;
+    adres:gemeentenaam "Genk" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/65f7cb9f45b0ae76b9b5fb4a2e1fdc0c> a locn:Address ;
+    mu:uuid "65f7cb9f45b0ae76b9b5fb4a2e1fdc0c" ;
+    locn:adminUnitL2 "Oost-Vlaanderen" ;
+    locn:fullAddress "Sophie Van Akenstraat 56, 9000 Gent" ;
+    locn:postCode "9000" ;
+    locn:thoroughfare "Sophie Van Akenstraat" ;
+    adres:Adresvoorstelling.huisnummer "56" ;
+    adres:gemeentenaam "Gent" ;
+    adres:land "België" .
+
 <http://data.lblod.info/id/adressen/73e5f5751496ea512aaa25622f4375ae> a locn:Address ;
     mu:uuid "73e5f5751496ea512aaa25622f4375ae" ;
     locn:adminUnitL2 "Oost-Vlaanderen" ;
@@ -5605,6 +5715,16 @@
     locn:thoroughfare "Hazewindstraat" ;
     adres:Adresvoorstelling.huisnummer "47" ;
     adres:gemeentenaam "Sint-Niklaas" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/79ef674eaf42d480107a843b7bb8636f> a locn:Address ;
+    mu:uuid "79ef674eaf42d480107a843b7bb8636f" ;
+    locn:adminUnitL2 "Limburg" ;
+    locn:fullAddress "X 0, 3580 Beringen" ;
+    locn:postCode "3580" ;
+    locn:thoroughfare "X" ;
+    adres:Adresvoorstelling.huisnummer "0" ;
+    adres:gemeentenaam "Beringen" ;
     adres:land "België" .
 
 <http://data.lblod.info/id/adressen/7a7ce9de5aca596add34e81e6c2f78b9> a locn:Address ;
@@ -5637,6 +5757,16 @@
     adres:gemeentenaam "Heusden-Zolder" ;
     adres:land "België" .
 
+<http://data.lblod.info/id/adressen/8990e99591891b65489e975d84c6cf14> a locn:Address ;
+    mu:uuid "8990e99591891b65489e975d84c6cf14" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Stenenbrug 11, 2140 Antwerpen" ;
+    locn:postCode "2140" ;
+    locn:thoroughfare "Stenenbrug" ;
+    adres:Adresvoorstelling.huisnummer "11" ;
+    adres:gemeentenaam "Antwerpen" ;
+    adres:land "België" .
+
 <http://data.lblod.info/id/adressen/910ead9c35573ad86b38a392e98ab64d> a locn:Address ;
     mu:uuid "910ead9c35573ad86b38a392e98ab64d" ;
     locn:adminUnitL2 "Limburg" ;
@@ -5645,6 +5775,26 @@
     locn:thoroughfare "Saviostraat" ;
     adres:Adresvoorstelling.huisnummer "49" ;
     adres:gemeentenaam "Houthalen-Helchteren" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/924d6339a48cd7e11430322b9e5d9ea6> a locn:Address ;
+    mu:uuid "924d6339a48cd7e11430322b9e5d9ea6" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Wollemarkt 15, 2800 Mechelen" ;
+    locn:postCode "2800" ;
+    locn:thoroughfare "Wollemarkt" ;
+    adres:Adresvoorstelling.huisnummer "15" ;
+    adres:gemeentenaam "Mechelen" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/926f4440f9c1ade3dbe83afff78a9921> a locn:Address ;
+    mu:uuid "926f4440f9c1ade3dbe83afff78a9921" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Van Kerckhovenstraat 87-89, 2060 Antwerpen" ;
+    locn:postCode "2060" ;
+    locn:thoroughfare "Van Kerckhovenstraat" ;
+    adres:Adresvoorstelling.huisnummer "87-89" ;
+    adres:gemeentenaam "Antwerpen" ;
     adres:land "België" .
 
 <http://data.lblod.info/id/adressen/938f979e572be79d3d990f96a8272b5c> a locn:Address ;
@@ -5667,6 +5817,26 @@
     adres:gemeentenaam "Genk" ;
     adres:land "België" .
 
+<http://data.lblod.info/id/adressen/9c4d0aaa21da5ec8cbc95e4ec24e8204> a locn:Address ;
+    mu:uuid "9c4d0aaa21da5ec8cbc95e4ec24e8204" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Heistraat 319, 2610 Antwerpen" ;
+    locn:postCode "2610" ;
+    locn:thoroughfare "Heistraat" ;
+    adres:Adresvoorstelling.huisnummer "319" ;
+    adres:gemeentenaam "Antwerpen" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/a0a2dedd5bf5ba28c3f14df50c8e9185> a locn:Address ;
+    mu:uuid "a0a2dedd5bf5ba28c3f14df50c8e9185" ;
+    locn:adminUnitL2 "Vlaams-Brabant" ;
+    locn:fullAddress "Tervuursestraat 56, 3000 Leuven" ;
+    locn:postCode "3000" ;
+    locn:thoroughfare "Tervuursestraat" ;
+    adres:Adresvoorstelling.huisnummer "56" ;
+    adres:gemeentenaam "Leuven" ;
+    adres:land "België" .
+
 <http://data.lblod.info/id/adressen/a68224040c6ee87ece50fc907d819b5c> a locn:Address ;
     mu:uuid "a68224040c6ee87ece50fc907d819b5c" ;
     locn:adminUnitL2 "West-Vlaanderen" ;
@@ -5687,6 +5857,16 @@
     adres:gemeentenaam "Genk" ;
     adres:land "België" .
 
+<http://data.lblod.info/id/adressen/abb9ecd30551b7202a431be852688b21> a locn:Address ;
+    mu:uuid "abb9ecd30551b7202a431be852688b21" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Ieperstraat 26, 2018 Antwerpen" ;
+    locn:postCode "2018" ;
+    locn:thoroughfare "Ieperstraat" ;
+    adres:Adresvoorstelling.huisnummer "26" ;
+    adres:gemeentenaam "Antwerpen" ;
+    adres:land "België" .
+
 <http://data.lblod.info/id/adressen/ae6d4fc20ddd6f5f19b1fa2993e394d2> a locn:Address ;
     mu:uuid "ae6d4fc20ddd6f5f19b1fa2993e394d2" ;
     locn:adminUnitL2 "Limburg" ;
@@ -5705,6 +5885,16 @@
     locn:thoroughfare "Hasseltsepoort" ;
     adres:Adresvoorstelling.huisnummer "17" ;
     adres:gemeentenaam "Bilzen" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/afcf30db845b45152f05061a6bde09a7> a locn:Address ;
+    mu:uuid "afcf30db845b45152f05061a6bde09a7" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Ginderbuiten 49, 2400 Mol" ;
+    locn:postCode "2400" ;
+    locn:thoroughfare "Ginderbuiten" ;
+    adres:Adresvoorstelling.huisnummer "49" ;
+    adres:gemeentenaam "Mol" ;
     adres:land "België" .
 
 <http://data.lblod.info/id/adressen/b2906ef85a29f434937f0a082b1e1c82> a locn:Address ;
@@ -5745,6 +5935,26 @@
     locn:thoroughfare "Sorbebomenstraat" ;
     adres:Adresvoorstelling.huisnummer "24A" ;
     adres:gemeentenaam "Beringen" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/b6e9be644a1483fdb503f2ad8e463b8d> a locn:Address ;
+    mu:uuid "b6e9be644a1483fdb503f2ad8e463b8d" ;
+    locn:adminUnitL2 "Oost-Vlaanderen" ;
+    locn:fullAddress "Kerkstraat 188, 9050 Gent" ;
+    locn:postCode "9050" ;
+    locn:thoroughfare "Kerkstraat" ;
+    adres:Adresvoorstelling.huisnummer "188" ;
+    adres:gemeentenaam "Gent" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/b79ad79df7d2fbc2dc72a504cc19a0cb> a locn:Address ;
+    mu:uuid "b79ad79df7d2fbc2dc72a504cc19a0cb" ;
+    locn:adminUnitL2 "West-Vlaanderen" ;
+    locn:fullAddress "Sint-Salvatorskoorstraat 8, 8000 Brugge" ;
+    locn:postCode "8000" ;
+    locn:thoroughfare "Sint-Salvatorskoorstraat" ;
+    adres:Adresvoorstelling.huisnummer "8" ;
+    adres:gemeentenaam "Brugge" ;
     adres:land "België" .
 
 <http://data.lblod.info/id/adressen/bf62607955357e642324762c663cc14b> a locn:Address ;
@@ -5807,6 +6017,16 @@
     adres:gemeentenaam "Genk" ;
     adres:land "België" .
 
+<http://data.lblod.info/id/adressen/dd03c42bc6adf9702adb5c42ed87e090> a locn:Address ;
+    mu:uuid "dd03c42bc6adf9702adb5c42ed87e090" ;
+    locn:adminUnitL2 "Limburg" ;
+    locn:fullAddress "Vrijwilligersplein 14, 3500 Hasselt" ;
+    locn:postCode "3500" ;
+    locn:thoroughfare "Vrijwilligersplein" ;
+    adres:Adresvoorstelling.huisnummer "14" ;
+    adres:gemeentenaam "Hasselt" ;
+    adres:land "België" .
+
 <http://data.lblod.info/id/adressen/de709b1d78fb775fda62dd9874e69933> a locn:Address ;
     mu:uuid "de709b1d78fb775fda62dd9874e69933" ;
     locn:adminUnitL2 "Limburg" ;
@@ -5836,6 +6056,47 @@
     locn:thoroughfare "Strandloperstraat" ;
     adres:Adresvoorstelling.huisnummer "214c" ;
     adres:gemeentenaam "Oostende" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/ef1e46fb211a9d19e3bb840e8ee3d7f7> a locn:Address ;
+    mu:uuid "ef1e46fb211a9d19e3bb840e8ee3d7f7" ;
+    locn:adminUnitL2 "Oost-Vlaanderen" ;
+    locn:fullAddress "Francisco Ferrerlaan 214A, 9000 Gent" ;
+    locn:postCode "9000" ;
+    locn:thoroughfare "Francisco Ferrerlaan" ;
+    adres:Adresvoorstelling.huisnummer "214A" ;
+    adres:gemeentenaam "Gent" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/f2875f92d17b9be7cdffd23f1948ae02> a locn:Address ;
+    mu:uuid "f2875f92d17b9be7cdffd23f1948ae02" ;
+    locn:adminUnitL2 "Oost-Vlaanderen" ;
+    locn:fullAddress "Spinterstraat 56, 9600 Ronse" ;
+    locn:postCode "9600" ;
+    locn:thoroughfare "Spinterstraat" ;
+    adres:Adresvoorstelling.huisnummer "56" ;
+    adres:gemeentenaam "Ronse" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/f4b5c301a723e9b84cfe4e469373f11b> a locn:Address ;
+    mu:uuid "f4b5c301a723e9b84cfe4e469373f11b" ;
+    locn:adminUnitL2 "Antwerpen" ;
+    locn:fullAddress "Groenplaats 21, 2000 Antwerpen" ;
+    locn:postCode "2000" ;
+    locn:thoroughfare "Groenplaats" ;
+    adres:Adresvoorstelling.huisnummer "21" ;
+    adres:gemeentenaam "Antwerpen" ;
+    adres:land "België" .
+
+<http://data.lblod.info/id/adressen/f67993f5dac2cb0dd2515ff266aa7b7f> a locn:Address ;
+    mu:uuid "f67993f5dac2cb0dd2515ff266aa7b7f" ;
+    locn:adminUnitL2 "Oost-Vlaanderen" ;
+    locn:fullAddress "Loodsenstraat 56 001, 9000 Gent" ;
+    locn:postCode "9000" ;
+    locn:thoroughfare "Loodsenstraat" ;
+    adres:Adresvoorstelling.busnummer "001" ;
+    adres:Adresvoorstelling.huisnummer "56" ;
+    adres:gemeentenaam "Gent" ;
     adres:land "België" .
 
 <http://data.lblod.info/id/bestuursorganen/1179426b-69d4-4974-8aa2-c4d46a22c9cc> a besluit:Bestuursorgaan ;
@@ -15002,11 +15263,31 @@
     ere:functie <http://lblod.data.gift/concepts/c4a3fd586211b17b06f574885e23f355> ;
     mu:uuid "ff13f7590d77220f2620cdcfc3272aae" .
 
+<http://data.lblod.info/id/vestigingen/080c97830e203edf47251e6facf5293f> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "080c97830e203edf47251e6facf5293f" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/ef1e46fb211a9d19e3bb840e8ee3d7f7> .
+
+<http://data.lblod.info/id/vestigingen/128538d0b3fe11f55a55eda156cc51f6> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "128538d0b3fe11f55a55eda156cc51f6" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/31559361014e4141aa65f80ea0330f6f> .
+
+<http://data.lblod.info/id/vestigingen/132bdc2addf10818f71dba37a241106d> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "132bdc2addf10818f71dba37a241106d" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/924d6339a48cd7e11430322b9e5d9ea6> .
+
 <http://data.lblod.info/id/vestigingen/164ad7cc57f60f5f07d0ae9cd32f643e> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
     mu:uuid "164ad7cc57f60f5f07d0ae9cd32f643e" ;
     org:siteAddress <http://data.lblod.info/id/contact-punten/61669672375CFC000A00078E> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/938f979e572be79d3d990f96a8272b5c> .
+
+<http://data.lblod.info/id/vestigingen/19c140e9d95d404d6aaa1f03cad563d4> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "19c140e9d95d404d6aaa1f03cad563d4" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/abb9ecd30551b7202a431be852688b21> .
 
 <http://data.lblod.info/id/vestigingen/25ec2541a5402b516847d1058e6b2037> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
@@ -15014,11 +15295,36 @@
     org:siteAddress <http://data.lblod.info/id/contact-punten/6166F33F375CFC000A0007A1> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/a68224040c6ee87ece50fc907d819b5c> .
 
+<http://data.lblod.info/id/vestigingen/2a49f9f2a778c856b3f537ab20e1a802> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "2a49f9f2a778c856b3f537ab20e1a802" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/0fcb667925ce0f8e80f272c324cf5f11> .
+
+<http://data.lblod.info/id/vestigingen/314c33b3b669fbecf3142bc95d5b7f81> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "314c33b3b669fbecf3142bc95d5b7f81" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/8990e99591891b65489e975d84c6cf14> .
+
+<http://data.lblod.info/id/vestigingen/340827c1a0bb084fcd746634382759f5> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "340827c1a0bb084fcd746634382759f5" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/1aa1edb41463fec0da8aa76f12247bbb> .
+
+<http://data.lblod.info/id/vestigingen/396edfbd299fa89c4441e4f478bd2eff> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "396edfbd299fa89c4441e4f478bd2eff" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/f4b5c301a723e9b84cfe4e469373f11b> .
+
 <http://data.lblod.info/id/vestigingen/3ace942bf675cc0b3f3a44bea66eba21> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
     mu:uuid "3ace942bf675cc0b3f3a44bea66eba21" ;
     org:siteAddress <http://data.lblod.info/id/contact-punten/61669620375CFC000A00078B> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/b4482f1b038a827b70fc7c7531b2b956> .
+
+<http://data.lblod.info/id/vestigingen/3f1f8fd9c95f3c7a1888d360a863069a> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "3f1f8fd9c95f3c7a1888d360a863069a" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/63c916e885e91123c74d70d0517319c7> .
 
 <http://data.lblod.info/id/vestigingen/4042937bbdc9b9703c224ff6afb961f7> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
@@ -15032,6 +15338,16 @@
     org:siteAddress <http://data.lblod.info/id/contact-punten/61320C55375CFC000A00015D> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/7a7ce9de5aca596add34e81e6c2f78b9> .
 
+<http://data.lblod.info/id/vestigingen/4b049d355fc2d798bb803012874ed5b6> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "4b049d355fc2d798bb803012874ed5b6" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/3b30947dc670ef5d683e3186a3541f40> .
+
+<http://data.lblod.info/id/vestigingen/51f9ede85d5af4544c3ad3629aa33730> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "51f9ede85d5af4544c3ad3629aa33730" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/b79ad79df7d2fbc2dc72a504cc19a0cb> .
+
 <http://data.lblod.info/id/vestigingen/522862f82e834ebf6454eab0f0ecd23f> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
     mu:uuid "522862f82e834ebf6454eab0f0ecd23f" ;
@@ -15043,6 +15359,11 @@
     mu:uuid "5392ca05f478f5584ca133526632098d" ;
     org:siteAddress <http://data.lblod.info/id/contact-punten/61669578375CFC000A000785> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/ca3f4782ee7fccb4cf54a16ecad28e2a> .
+
+<http://data.lblod.info/id/vestigingen/5c70c0b2df72c798ff5aef609870d6fc> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "5c70c0b2df72c798ff5aef609870d6fc" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/297452a2d660053c648fc24be9a77f0d> .
 
 <http://data.lblod.info/id/vestigingen/5cef97ff114d9f1c9fd3148500eefa11> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
@@ -15137,6 +15458,11 @@
     org:siteAddress <http://data.lblod.info/id/contact-punten/62C7FCB9D7779543F77795EC>,
         <http://data.lblod.info/id/contact-punten/62C7FCB9D7779543F77795ED> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/62C7FCBAD7779543F77795EE> .
+
+<http://data.lblod.info/id/vestigingen/62e062448e82a3bcc2b4a66b39751c8b> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "62e062448e82a3bcc2b4a66b39751c8b" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/f67993f5dac2cb0dd2515ff266aa7b7f> .
 
 <http://data.lblod.info/id/vestigingen/6304D0DFE2599015A037ADFF> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
@@ -15583,6 +15909,11 @@
     org:siteAddress <http://data.lblod.info/id/contact-punten/61669646375CFC000A00078C> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/ae6d4fc20ddd6f5f19b1fa2993e394d2> .
 
+<http://data.lblod.info/id/vestigingen/687c44d66f3cc124ad6868a1c3314746> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "687c44d66f3cc124ad6868a1c3314746" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/3864d29cd2a822bc0b9db13a6e01f312> .
+
 <http://data.lblod.info/id/vestigingen/68a916042ac456d92d9b08c0083d6a8e> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
     mu:uuid "68a916042ac456d92d9b08c0083d6a8e" ;
@@ -15619,6 +15950,11 @@
     org:siteAddress <http://data.lblod.info/id/contact-punten/6131D41D375CFC000A0000C8> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/23b9dfa35c60c59b9451dab33212ce69> .
 
+<http://data.lblod.info/id/vestigingen/920bb31c9864c5d395344632b7705a8a> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "920bb31c9864c5d395344632b7705a8a" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/afcf30db845b45152f05061a6bde09a7> .
+
 <http://data.lblod.info/id/vestigingen/93d6f8afea2face1f9c08a8160338bc7> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
     mu:uuid "93d6f8afea2face1f9c08a8160338bc7" ;
@@ -15649,6 +15985,11 @@
     org:siteAddress <http://data.lblod.info/id/contact-punten/6166F2EA375CFC000A00079E> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/ca0cba3a3e736973c7dd15ac9bf2c999> .
 
+<http://data.lblod.info/id/vestigingen/b1073ca6bc8dc22b68867966227214fe> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "b1073ca6bc8dc22b68867966227214fe" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/f2875f92d17b9be7cdffd23f1948ae02> .
+
 <http://data.lblod.info/id/vestigingen/b6b48a61bb384548317026b0ad9bf32d> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
     mu:uuid "b6b48a61bb384548317026b0ad9bf32d" ;
@@ -15660,6 +16001,26 @@
     mu:uuid "bac03cfaddfaa58b830b68d420f37a72" ;
     org:siteAddress <http://data.lblod.info/id/contact-punten/6166965C375CFC000A00078D> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/b5ccda143c2b497bd26750e9f0a3a3aa> .
+
+<http://data.lblod.info/id/vestigingen/c08e8f5344500fbf02530d9165db648a> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "c08e8f5344500fbf02530d9165db648a" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/9c4d0aaa21da5ec8cbc95e4ec24e8204> .
+
+<http://data.lblod.info/id/vestigingen/c1d5131200ced2e1017e133cf8b661d2> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "c1d5131200ced2e1017e133cf8b661d2" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/0c928b91c2d52e15172f7acd85b0e1f6> .
+
+<http://data.lblod.info/id/vestigingen/c2d42086bba3bc423c86916830d5b75a> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "c2d42086bba3bc423c86916830d5b75a" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/a0a2dedd5bf5ba28c3f14df50c8e9185> .
+
+<http://data.lblod.info/id/vestigingen/c81780f656fc97a2d1d6d6fa8e70911a> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "c81780f656fc97a2d1d6d6fa8e70911a" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/79ef674eaf42d480107a843b7bb8636f> .
 
 <http://data.lblod.info/id/vestigingen/cec470e6bb3dbd9e79f9a46d0f210c27> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
@@ -15678,6 +16039,31 @@
     mu:uuid "cfd859ceb7f5871592c5ca1a4ec8dd08" ;
     org:siteAddress <http://data.lblod.info/id/contact-punten/61320C32375CFC000A00015C> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/864f53845bda8fa1b8044ae74f0ba1d7> .
+
+<http://data.lblod.info/id/vestigingen/d6565c9cc4a9c028a85154d10770f2c5> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "d6565c9cc4a9c028a85154d10770f2c5" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/b6e9be644a1483fdb503f2ad8e463b8d> .
+
+<http://data.lblod.info/id/vestigingen/e6ebbb06850467e3bfc11348e66b344a> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "e6ebbb06850467e3bfc11348e66b344a" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/1b61d62596de68f1d2fc1816e0857927> .
+
+<http://data.lblod.info/id/vestigingen/e8ade31f9f7c1a83985b79ddfebe87fb> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "e8ade31f9f7c1a83985b79ddfebe87fb" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/65f7cb9f45b0ae76b9b5fb4a2e1fdc0c> .
+
+<http://data.lblod.info/id/vestigingen/eb2ed675ec94ba913b1cd428493526db> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "eb2ed675ec94ba913b1cd428493526db" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/3ec838e36feb6da02b2701f1f49ce5b7> .
+
+<http://data.lblod.info/id/vestigingen/f1c7a57303f5bb3422eac3f033360c61> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "f1c7a57303f5bb3422eac3f033360c61" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/926f4440f9c1ade3dbe83afff78a9921> .
 
 <http://data.lblod.info/id/vestigingen/f65cad99308044eb6df1d1f72d2297cc> a org:Site ;
     ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
@@ -15702,6 +16088,11 @@
     mu:uuid "fb6c31bc94544e1d2079baecf0e266c0" ;
     org:siteAddress <http://data.lblod.info/id/contact-punten/6166977C375CFC000A000791> ;
     organisatie:bestaatUit <http://data.lblod.info/id/adressen/9942bc3876c88374bbd414175eb89fc7> .
+
+<http://data.lblod.info/id/vestigingen/fbe9e6e083bec26b656f007cd22aa24f> a org:Site ;
+    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ;
+    mu:uuid "fbe9e6e083bec26b656f007cd22aa24f" ;
+    organisatie:bestaatUit <http://data.lblod.info/id/adressen/dd03c42bc6adf9702adb5c42ed87e090> .
 
 <http://data.lblod.info/id/besturenVanDeEredienst/064d0956f36a54c27e9d93828a34f538> a ere:BestuurVanDeEredienst ;
     ere:denominatie "Oecumenisch Patriarchaat - Aartsbisdom van België" ;
