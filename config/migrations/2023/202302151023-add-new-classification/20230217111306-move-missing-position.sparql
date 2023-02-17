@@ -7,11 +7,12 @@ PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
 
 DELETE {
   GRAPH <http://mu.semte.ch/graphs/tmp-graph-to-import-services> {
-  ?worshipAdminUnit <http://data.lblod.info/vocabularies/erediensten/wordtBediendDoor> ?positieBedienaar .
+    ?worshipAdminUnit <http://data.lblod.info/vocabularies/erediensten/wordtBediendDoor> ?positieBedienaar .
     ?positieBedienaar ?ppositieBedienaar ?opositieBedienaar .
   }
 } INSERT {
   GRAPH ?g {
+    ?worshipAdminUnit <http://data.lblod.info/vocabularies/erediensten/wordtBediendDoor> ?positieBedienaar .
     ?positieBedienaar ?ppositieBedienaar ?opositieBedienaar .
   }
 } WHERE {
