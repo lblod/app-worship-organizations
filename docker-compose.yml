@@ -182,10 +182,10 @@ services:
       DCR_DISABLE_INITIAL_SYNC: "true"
       DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "false" # Can't bypass because data should flow to the positions-dispatcher
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest-graph"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "false"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
     volumes:
-      - ./config/worship-services-sensitive-consumer/positions-dispatching:/config/triples-dispatching/custom-dispatching
+      - ./config/consumer/worship-services-sensitive:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/worship-services-sensitive:/consumer-files/
     links:
       - db:database
@@ -205,8 +205,9 @@ services:
       DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "false"
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest-graph"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
     volumes:
+      - ./config/consumer/worship-posts:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/worship-posts:/consumer-files/
     links:
       - db:database

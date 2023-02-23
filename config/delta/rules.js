@@ -21,7 +21,7 @@ export default [
     match: {
       graph: {
         type: 'uri',
-        value: 'http://mu.semte.ch/graphs/ingest-graph'
+        value: 'http://mu.semte.ch/graphs/ingest'
       }
     },
     callback: {
