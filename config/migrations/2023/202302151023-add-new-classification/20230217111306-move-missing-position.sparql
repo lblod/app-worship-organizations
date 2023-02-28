@@ -1,0 +1,34 @@
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/tmp-graph-to-import-services> {
+    ?worshipAdminUnit <http://data.lblod.info/vocabularies/erediensten/wordtBediendDoor> ?positieBedienaar .
+    ?positieBedienaar ?ppositieBedienaar ?opositieBedienaar .
+  }
+} INSERT {
+  GRAPH ?g {
+    ?worshipAdminUnit <http://data.lblod.info/vocabularies/erediensten/wordtBediendDoor> ?positieBedienaar .
+    ?positieBedienaar ?ppositieBedienaar ?opositieBedienaar .
+  }
+} WHERE {
+  GRAPH ?g {
+    VALUES ?type {
+      ere:BestuurVanDeEredienst
+      ere:CentraalBestuurVanDeEredienst
+    }
+    ?worshipAdminUnit a ?type.
+  }
+
+  GRAPH <http://mu.semte.ch/graphs/tmp-graph-to-import-services> {
+    ?worshipAdminUnit
+      <http://data.lblod.info/vocabularies/erediensten/wordtBediendDoor> ?positieBedienaar .
+
+    ?positieBedienaar ?ppositieBedienaar ?opositieBedienaar .
+  }
+  FILTER (?g != <http://mu.semte.ch/graphs/tmp-graph-to-import-services>)
+}
