@@ -18,7 +18,7 @@ export async function dispatchToCorrectGraphs(
     await muUpdate(`
       INSERT {
         GRAPH <http://mu.semte.ch/graphs/public> {
-
+          ?s ?p ?o .
         }
       } WHERE {
         GRAPH <${INGEST_GRAPH}> {
@@ -44,36 +44,184 @@ export async function dispatchToCorrectGraphs(
 
   updateWithRetry(variousPublicInsert, maxAttempts, sleepBetweenBatches, sleepTimeOnFail);
 
-  // TODO Donc là pareil, type par type, avec les filters :)
+  const bestuurseenheidPublicInsert = async () => {
+    await muUpdate(`
+      INSERT {
+        GRAPH <http://mu.semte.ch/graphs/public> {
+          ?s ?p ?o .
+        }
+      } WHERE {
+        GRAPH <${INGEST_GRAPH}> {
+          VALUES ?type {
+            <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>
+          }
+          ?s a ?type ;
+            <http://www.w3.org/ns/org#classification> ?bestuurClassification .
+            ?p ?o .
 
-    type: `http://data.vlaanderen.be/ns/besluit#Bestuurseenheid`,
-    additionalFilter: `
-      ?subject <http://www.w3.org/ns/org#classification> ?bestuurClassification .
+          FILTER (?bestuurClassification IN (
+              <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>,
+              <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000>
+            )
+          )
+        }
+      }`, extraHeaders, endpoint);
+  };
 
-      FILTER (?bestuurClassification IN (
-          <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>,
-          <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000>
-        )
-      )
-    `
+  updateWithRetry(bestuurseenheidPublicInsert, maxAttempts, sleepBetweenBatches, sleepTimeOnFail);
 
-    type: `http://data.vlaanderen.be/ns/besluit#Bestuursorgaan`,
-    additionalFilter: `
-      ?subject (<https://data.vlaanderen.be/ns/generiek#isTijdspecialisatieVan>/<http://data.vlaanderen.be/ns/besluit#bestuurt>)|(<http://data.vlaanderen.be/ns/besluit#bestuurt>) ?administrativeUnit . ?administrativeUnit <http://www.w3.org/ns/org#classification> ?bestuurClassification .
-      FILTER (?bestuurClassification IN (
-        <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>,
-        <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000>
-      ))
-    `
+  const bestuursorgaanPublicInsert = async () => {
+    await muUpdate(`
+      INSERT {
+        GRAPH <http://mu.semte.ch/graphs/public> {
+          ?s ?p ?o .
+        }
+      } WHERE {
+        GRAPH <${INGEST_GRAPH}> {
+          VALUES ?type {
+            <http://data.vlaanderen.be/ns/besluit#Bestuursorgaan>
+          }
+          ?s a ?type ;
+            ?p ?o .
 
+          ?s (<https://data.vlaanderen.be/ns/generiek#isTijdspecialisatieVan>/<http://data.vlaanderen.be/ns/besluit#bestuurt>) |
+              (<http://data.vlaanderen.be/ns/besluit#bestuurt>) ?administrativeUnit .
 
+          ?administrativeUnit <http://www.w3.org/ns/org#classification> ?bestuurClassification .
 
+          FILTER (?bestuurClassification IN (
+            <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>,
+            <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000>
+          ))
+        }
+      }`, extraHeaders, endpoint);
+  };
 
+  updateWithRetry(bestuursorgaanPublicInsert, maxAttempts, sleepBetweenBatches, sleepTimeOnFail);
 
   // ------------------------------------------------------------
   // ------------------------ ORG GRAPHS ------------------------
   // ------------------------------------------------------------
 
+  // Dispatch worship admin units linked to ROs
+
+
+
+  // Dispatch worship admin units linked to municipalities
+
+
+
+
+  // Dispatch worship admin units linked to provinces
+
+
+
+
+  // Dispatch bestuursorganen
+
+
+
+
+  // Dispatch (etc)
+
+
+
+
+
+  # RULE ONE
+# Representative organs can see data from organizations they are mother organization of
+
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+
+INSERT {
+  GRAPH ?orgGraph {
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?s a ere:RepresentatiefOrgaan ;
+      mu:uuid ?uuidRO ;
+      org:linkedTo ?worshipAdminUnit .
+
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+
+    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidRO, "/LoketLB-eredienstOrganisatiesGebruiker")) AS ?orgGraph)
+  }
+}
+
+
+# RULE TWO
+# Municipalities can see worship services they have relations to via the module
+# 'betrokken lokale besturen'
+
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+
+INSERT {
+  GRAPH ?orgGraph {
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?s a besluit:Bestuurseenheid ;
+      mu:uuid ?uuidBestuurseenheid ;
+      org:classification <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ; # Gemeente
+      ere:betrokkenBestuur ?betrokke .
+      
+    ?betrokke org:organization ?worshipAdminUnit ;
+      ?pbetrokke ?obetrokke .
+
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+
+    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidBestuurseenheid, "/LoketLB-eredienstOrganisatiesGebruiker")) AS ?orgGraph)
+  }
+}
+
+
+
+# RULE THREE
+# Provinces will see the worship services which they have a link
+# (any link) to in the module 'betrokken lokale besturen'
+
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+
+INSERT {
+  GRAPH ?orgGraph {
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/tmp-graph-to-import-services> {
+    ?s a besluit:Bestuurseenheid ;
+      mu:uuid ?uuidBestuurseenheid ;
+      org:classification <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000> ; # Provincie
+      ere:betrokkenBestuur ?betrokke .
+
+    ?betrokke org:organization ?worshipAdminUnit ;
+      ?pbetrokke ?obetrokke .
+
+    ?worshipAdminUnit ?pworshipAdminUnit ?oworshipAdminUnit .
+
+    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?uuidBestuurseenheid, "/LoketLB-eredienstOrganisatiesGebruiker")) AS ?orgGraph)
+  }
+}
+
+
+
+Puis on décale le reste dans les graphs des bestuuren
 
 
 }
