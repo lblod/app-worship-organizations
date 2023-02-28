@@ -15,7 +15,7 @@ INSERT {
     ?betrokke ?pbetrokke ?obetrokke .
   }
 } WHERE {
-  GRAPH <http://mu.semte.ch/graphs/tmp-graph-to-import-services> {
+  GRAPH ?g {
     ?s a besluit:Bestuurseenheid ;
       mu:uuid ?uuidBestuurseenheid ;
       org:classification <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000> ; # Provincie
