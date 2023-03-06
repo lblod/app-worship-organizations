@@ -1,5 +1,5 @@
 const { transformStatements, batchedDbUpdate } = require('./util');
-const { BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
+const {
   DIRECT_DATABASE_ENDPOINT,
   MU_CALL_SCOPE_ID_INITIAL_SYNC,
   BATCH_SIZE,
@@ -8,7 +8,9 @@ const { BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
   SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
   INGEST_GRAPH
 } = require('./config');
-const endpoint = BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES ? DIRECT_DATABASE_ENDPOINT : process.env.MU_SPARQL_ENDPOINT;
+
+// We bypass mu-auth by default because the initial sync is too big
+const endpoint = DIRECT_DATABASE_ENDPOINT;
 
 /**
 * Dispatch the fetched information to a target graph.
@@ -27,9 +29,7 @@ async function dispatch(lib, data) {
   const { mu, muAuthSudo, fetch } = lib;
   const { termObjects } = data;
 
-  if (BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES) {
-    console.warn(`Service configured to skip MU_AUTH!`);
-  }
+  console.warn(`Service configured to skip MU_AUTH!`);
   console.log(`Using ${endpoint} to insert triples`);
 
   if (termObjects.length) {
@@ -48,7 +48,7 @@ async function dispatch(lib, data) {
         MAX_DB_RETRY_ATTEMPTS,
         SLEEP_BETWEEN_BATCHES,
         SLEEP_TIME_AFTER_FAILED_DB_OPERATION
-      )
+      );
     }
   }
 }

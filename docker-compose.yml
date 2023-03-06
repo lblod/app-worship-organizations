@@ -158,6 +158,7 @@ services:
   positions-dispatcher:
     image: lblod/worship-positions-graph-dispatcher-service:0.0.6
     environment:
+      DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
       SUDO_QUERY_RETRY: 'true'
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500"
     links:

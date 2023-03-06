@@ -149,5 +149,6 @@ module.exports = {
   batchedDbUpdate,
   deleteFromAllGraphs,
   partition,
-  transformStatements
+  transformStatements,
+  operationWithRetry
 };

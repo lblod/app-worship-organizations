@@ -1,8 +1,3 @@
-const {
-  MAX_REASONING_RETRY_ATTEMPTS,
-  SLEEP_TIME_AFTER_FAILED_REASONING_OPERATION
-} = require('./config');
-
 async function batchedDbUpdate(muUpdate,
   graph,
   triples,
@@ -95,31 +90,8 @@ async function operationWithRetry(callback,
   }
 }
 
-/**
- * Send triples to reasoning service for conversion
- *
- */
-function transformTriples(fetch, triples) {
-  return operationWithRetry(mainConversion(fetch, triples), 0,
-    MAX_REASONING_RETRY_ATTEMPTS, SLEEP_TIME_AFTER_FAILED_REASONING_OPERATION);
-}
-
-
-function mainConversion(fetch, triples) {
-  let formdata = new URLSearchParams();
-  formdata.append("data", triples);
-
-  let requestOptions = {
-    method: 'POST',
-    body: formdata,
-    redirect: 'follow'
-  };
-
-  return fetch("http://reasoner/reason/dl2op/main", requestOptions)
-    .then(response => response.text());
-}
-
 module.exports = {
   batchedDbUpdate,
   deleteFromAllGraphs,
+  operationWithRetry
 };

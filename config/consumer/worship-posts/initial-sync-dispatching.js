@@ -1,4 +1,4 @@
-const { transformStatements, batchedDbUpdate } = require('./util');
+const { batchedDbUpdate } = require('./util');
 const {
   DIRECT_DATABASE_ENDPOINT,
   MU_CALL_SCOPE_ID_INITIAL_SYNC,
@@ -29,38 +29,23 @@ async function dispatch(lib, data) {
   const { mu, muAuthSudo, fetch } = lib;
   const { termObjects } = data;
 
-  if (BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES) {
-    console.warn(`Service configured to skip MU_AUTH!`);
-  }
+  console.warn(`Service configured to skip MU_AUTH!`);
   console.log(`Using ${endpoint} to insert triples`);
 
   if (termObjects.length) {
-    originalInsertTriples = termObjects.map(o => `${o.subject} ${o.predicate} ${o.object}.`)
+    insertTriples = termObjects.map(o => `${o.subject} ${o.predicate} ${o.object}.`)
 
-    const transformedInsertTriples = await transformStatements(fetch, originalInsertTriples)
-
-    if (transformedInsertTriples.length) {
-      await batchedDbUpdate(
-        muAuthSudo.updateSudo,
-        INGEST_GRAPH,
-        transformedInsertTriples,
-        { 'mu-call-scope-id': MU_CALL_SCOPE_ID_INITIAL_SYNC },
-        endpoint,
-        BATCH_SIZE,
-        MAX_DB_RETRY_ATTEMPTS,
-        SLEEP_BETWEEN_BATCHES,
-        SLEEP_TIME_AFTER_FAILED_DB_OPERATION
-      );
-
-      await dispatchToCorrectGraphs(
-        muAuthSudo.updateSudo,
-        { 'mu-call-scope-id': MU_CALL_SCOPE_ID_INITIAL_SYNC },
-        endpoint,
-        MAX_DB_RETRY_ATTEMPTS,
-        SLEEP_BETWEEN_BATCHES,
-        SLEEP_TIME_AFTER_FAILED_DB_OPERATION
-      );
-    }
+    await batchedDbUpdate(
+      muAuthSudo.updateSudo,
+      INGEST_GRAPH,
+      insertTriples,
+      { 'mu-call-scope-id': MU_CALL_SCOPE_ID_INITIAL_SYNC },
+      endpoint,
+      BATCH_SIZE,
+      MAX_DB_RETRY_ATTEMPTS,
+      SLEEP_BETWEEN_BATCHES,
+      SLEEP_TIME_AFTER_FAILED_DB_OPERATION
+    );
   }
 }
 
