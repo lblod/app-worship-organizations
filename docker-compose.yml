@@ -17,6 +17,7 @@ services:
       EMBER_OAUTH_API_BASE_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
       EMBER_OAUTH_API_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
       EMBER_OAUTH_API_REDIRECT_URL: "https://organisaties.lokaalbestuur.lblod.info/authorization/callback"
+      EMBER_OAUTH_SWITCH_URL: "https://organisaties.lokaalbestuur.lblod.info/switch-login"
     labels:
       - "logging=true"
     restart: always
