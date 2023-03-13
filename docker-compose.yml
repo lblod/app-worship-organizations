@@ -70,7 +70,7 @@ services:
     restart: always
     logging: *default-logging
   resource:
-    image: semtech/mu-cl-resources:1.21.1
+    image: semtech/mu-cl-resources:feature-construct-based-fetches
     environment:
       CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
     links:
@@ -82,7 +82,7 @@ services:
     restart: always
     logging: *default-logging
   cache:
-    image: semtech/mu-cache:2.0.1
+    image: semtech/mu-cache:2.0.2
     links:
       - resource:backend
     labels:
@@ -156,8 +156,9 @@ services:
     volumes:
       - ./config/reasoner:/config
   positions-dispatcher:
-    image: lblod/worship-positions-graph-dispatcher-service:0.0.6
+    image: lblod/worship-positions-graph-dispatcher-service:1.0.0
     environment:
+      DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
       SUDO_QUERY_RETRY: 'true'
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500"
     links:
@@ -183,10 +184,9 @@ services:
       DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "false"
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/temp/for-dispatch"
-      FILE_SYNC_GRAPH: "http://mu.semte.ch/graphs/temp/original-physical-files-data"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
     volumes:
-      - ./config/worship-services-sensitive-consumer/positions-dispatching:/config/triples-dispatching/custom-dispatching
+      - ./config/consumer/worship-services-sensitive:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/worship-services-sensitive:/consumer-files/
     links:
       - db:database
@@ -206,9 +206,9 @@ services:
       DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "false"
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/temp/for-dispatch"
-      FILE_SYNC_GRAPH: "http://mu.semte.ch/graphs/temp/original-physical-files-data"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
     volumes:
+      - ./config/consumer/worship-posts:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/worship-posts:/consumer-files/
     links:
       - db:database
