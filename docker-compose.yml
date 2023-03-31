@@ -168,6 +168,16 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  update-bestuurseenheid-mock-login:
+    image: lblod/update-bestuurseenheid-mock-login-service:0.1.1
+    volumes:
+      - ./config/mock-login:/config
+    links:
+      - db:database
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   ################################################################################
   # DELTAS
   ################################################################################
