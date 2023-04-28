@@ -10,6 +10,8 @@ services:
       - "80:80"
   dispatcher:
     restart: "no"
+    volumes:
+      - ./config/dispatcher/dispatcher.ex:/config/dispatcher.ex
   triplestore:
     ports:
       - "8890:8890"

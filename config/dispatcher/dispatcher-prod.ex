@@ -1,5 +1,6 @@
 defmodule Dispatcher do
   use Matcher
+
   define_accept_types [
     html: ["text/html", "application/xhtml+html"],
     json: ["application/json", "application/vnd.api+json"],
@@ -228,9 +229,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/groups/"
   end
 
-  match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://mocklogin/sessions/"
-  end
+  #
+  # match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
+  #   Proxy.forward conn, path, "http://mocklogin/sessions/"
+  # end
 
   match "/sessions/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://login/sessions/"
