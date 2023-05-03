@@ -229,10 +229,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/groups/"
   end
 
-  #
-  # match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
-  #   Proxy.forward conn, path, "http://mocklogin/sessions/"
-  # end
+
+  match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
+    send_resp( conn, 404, "{\"error\": {\"code\": 404}")
+   end
 
   match "/sessions/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://login/sessions/"
