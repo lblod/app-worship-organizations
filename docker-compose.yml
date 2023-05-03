@@ -34,7 +34,7 @@ services:
   dispatcher:
     image: semtech/mu-dispatcher:2.1.0-beta.2
     volumes:
-      - ./config/dispatcher:/config
+      - ./config/dispatcher/dispatcher-prod.ex:/config/dispatcher.ex
     labels:
       - "logging=true"
     restart: always
