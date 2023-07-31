@@ -50,7 +50,7 @@ services:
     restart: always
     logging: *default-logging
   db:
-    image: semtech/mu-authorization:feature-service-roam-r1
+    image: semtech/mu-authorization:feature-service-roam-r1.1
     environment:
       MU_SPARQL_ENDPOINT: "http://triplestore:8890/sparql"
       ERROR_ON_UNWRITTEN_DATA: "true"
@@ -71,7 +71,7 @@ services:
     restart: always
     logging: *default-logging
   resource:
-    image: semtech/mu-cl-resources:feature-construct-based-fetches
+    image: semtech/mu-cl-resources:1.22.2
     environment:
       CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
     links:
