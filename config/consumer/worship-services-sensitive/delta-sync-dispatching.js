@@ -32,10 +32,14 @@ async function dispatch(lib, data) {
 
     if (deleteStatements.length) {
       const transformedStatementsToDelete = await transformStatements(fetch, deleteStatements);
-      if (transformedStatementsToDelete.length) {
+
+      // Trick that becomes useless if we bump the consumer to v0.0.19 or up
+      const filteredTransformedStatementsToDelete = transformedStatementsToDelete.filter(statement => statement != '');
+
+      if (filteredTransformedStatementsToDelete.length) {
         await deleteFromAllGraphs(
           muAuthSudo.updateSudo,
-          transformedStatementsToDelete,
+          filteredTransformedStatementsToDelete,
           { 'mu-call-scope-id': 'http://redpencil.data.gift/id/concept/muScope/deltas/write-for-dispatch' },
           process.env.MU_SPARQL_ENDPOINT, //Note: this is the default endpoint through auth
           MAX_DB_RETRY_ATTEMPTS,
@@ -47,11 +51,15 @@ async function dispatch(lib, data) {
 
     if (insertStatements.length) {
       const transformedStatementsToInsert = await transformStatements(fetch, insertStatements);
-      if (transformedStatementsToInsert.length) {
+
+      // Trick that becomes useless if we bump the consumer to v0.0.19 or up
+      const filteredTransformedStatementsToInsert = transformedStatementsToInsert.filter(statement => statement != '');
+
+      if (filteredTransformedStatementsToInsert.length) {
         await batchedDbUpdate(
           muAuthSudo.updateSudo,
           INGEST_GRAPH,
-          transformedStatementsToInsert,
+          filteredTransformedStatementsToInsert,
           { 'mu-call-scope-id': 'http://redpencil.data.gift/id/concept/muScope/deltas/write-for-dispatch' },
           process.env.MU_SPARQL_ENDPOINT, //Note: this is the default endpoint through auth
           BATCH_SIZE,
