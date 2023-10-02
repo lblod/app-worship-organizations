@@ -76,6 +76,7 @@ defmodule Acl.UserGroups.Config do
                         "http://www.w3.org/ns/adms#Identifier",
                         "http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode",
                         "http://mu.semte.ch/vocabularies/ext/GeslachtCode",
+                        "http://mu.semte.ch/vocabularies/ext/ReasonCode",
                         "http://lblod.data.gift/vocabularies/organisatie/BedienaarFinanceringCode",
                         "http://lblod.data.gift/vocabularies/organisatie/OrganisatieStatusCode",
                         "http://lblod.data.gift/vocabularies/organisatie/BestuursfunctieCode",

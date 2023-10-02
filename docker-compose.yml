@@ -156,11 +156,17 @@ services:
     image: eyereasoner/reasoning-service:increased-stack-limit
     volumes:
       - ./config/reasoner:/config
+  privacy:
+    image: lblod/wop-privacy-centric-service:0.1.0
+    environment:
+      SESSION_GRAPH: "http://mu.semte.ch/graphs/sessions"
+    links:
+      - db:database
   positions-dispatcher:
     image: lblod/worship-positions-graph-dispatcher-service:1.0.0
     environment:
       DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
-      SUDO_QUERY_RETRY: 'true'
+      SUDO_QUERY_RETRY: "true"
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500"
     links:
       - db:database

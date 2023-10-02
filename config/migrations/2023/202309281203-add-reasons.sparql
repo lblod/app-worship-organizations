@@ -1,0 +1,24 @@
+
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+
+ INSERT DATA {
+  GRAPH  <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/information-request-reason/27dc6115-d6e2-410c-bed6-1531706b2da7> a ext:ReasonCode,
+        skos:Concept;
+        mu:uuid "27dc6115-d6e2-410c-bed6-1531706b2da7";
+        skos:prefLabel "In het kader van een (erkenning/wijziging) dossier (art. 7, 7°)".
+    
+    <http://data.lblod.info/id/information-request-reason/24f6ba62-5f90-4039-b828-6d2a42abd305> a ext:ReasonCode,
+        skos:Concept;
+        mu:uuid "24f6ba62-5f90-4039-b828-6d2a42abd305";
+        skos:prefLabel "In het kader van de verplichtingen van de besturen van de eredienst (art. 16, 5° ,7°)".
+  
+    <http://data.lblod.info/id/information-request-reason/21856c75-f3d9-4c1b-b477-d821f500d267> a ext:ReasonCode,
+        skos:Concept;
+        mu:uuid "21856c75-f3d9-4c1b-b477-d821f500d267";
+        skos:prefLabel "In het kader van een samenvoegingsdossier - enkel voor bedienaren (en hun vervangers) van de eredienst (art. 37, §2, 7°)".
+  }
+
+}

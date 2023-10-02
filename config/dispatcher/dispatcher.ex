@@ -214,6 +214,9 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/decision-activities/"
   end
 
+  match "/request-reasons/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/request-reasons/"
+  end
   ###############
   # LOGIN
   ###############
@@ -244,6 +247,13 @@ defmodule Dispatcher do
     forward conn, path, "http://uri-info/"
   end
 
+  match "/person-information-requests/*path", %{ accept: [:any], layer: :api} do
+    forward conn, path, "http://privacy/person-information-requests"
+  end
+
+  match "/person-information-ask/*path", %{ accept: [:any], layer: :api}  do
+    forward conn, path, "http://privacy/person-information-ask/"
+  end
   #################################################################
   # ERROR REPORT
   #################################################################
