@@ -157,7 +157,7 @@ services:
     volumes:
       - ./config/reasoner:/config
   privacy:
-    image: lblod/wop-privacy-centric-service:0.1.0
+    image: lblod/wop-privacy-centric-service:0.1.2
     environment:
       SESSION_GRAPH: "http://mu.semte.ch/graphs/sessions"
     links:
