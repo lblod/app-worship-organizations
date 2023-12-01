@@ -234,16 +234,14 @@ defmodule Dispatcher do
 
 
   match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
-    send_resp( conn, 404, "{\"error\": {\"code\": 404}")
+    Proxy.forward conn, path, "http://controle-login-proxied/sessions/"
+
    end
 
   match "/sessions/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://controle-login/sessions/"
   end
-  
-  match "/controller-login/*path", %{ layer: :api } do
-    Proxy.forward conn, path, "http://controle-login-proxied/"
-  end
+ 
 
   ###############################################################
   # API SERVICES
