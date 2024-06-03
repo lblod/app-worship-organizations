@@ -152,16 +152,19 @@ services:
     image: lblod/error-report-service:0.1.0
     links:
       - db:database
+    restart: always
   reasoner:
     image: eyereasoner/reasoning-service:increased-stack-limit
     volumes:
       - ./config/reasoner:/config
+    restart: always
   privacy:
     image: lblod/wop-privacy-centric-service:0.1.2
     environment:
       SESSION_GRAPH: "http://mu.semte.ch/graphs/sessions"
     links:
       - db:database
+    restart: always
   positions-dispatcher:
     image: lblod/worship-positions-graph-dispatcher-service:1.0.1
     environment:
