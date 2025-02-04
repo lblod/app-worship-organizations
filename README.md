@@ -63,10 +63,16 @@ To proceed:
       DCR_SYNC_BASE_URL: 'https://loket.lblod.info/' # The endpoint of your choice (see later what to choose)
       DCR_SYNC_LOGIN_ENDPOINT: 'https://loket.lblod.info/sync/worship-services-sensitive-deltas/login'
       DCR_SECRET_KEY: "the-key-of-interest"
-      DCR_DISABLE_INITIAL_SYNC: 'false'
+      DCR_LANDING_ZONE_DATABASE: "triplestore"
+      DCR_REMAPPING_DATABASE: "triplestore"
+      DCR_DISABLE_DELTA_INGEST: "true"
+      DCR_DISABLE_INITIAL_SYNC: "false"
   worship-posts-consumer:
     environment:
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info/"
+      DCR_LANDING_ZONE_DATABASE: "triplestore"
+      DCR_REMAPPING_DATABASE: "triplestore"
+      DCR_DISABLE_DELTA_INGEST: "true"
       DCR_DISABLE_INITIAL_SYNC: "false"
 ```
 
@@ -75,3 +81,20 @@ To proceed:
 2. Check the logs, at some point this message should show up for the two consumers: `Proceeding in Normal operation mode: ingest deltas`
 
 3. The dispatching service `positions-dispatcher` should now start being active (check for log `Initial syncs done, starting initial dispatch`), dispatching the initial data and then the live sync data.
+
+4. Once everything is done, you can set up the live sync
+```
+# (...)
+  worship-services-sensitive-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "db"
+      DCR_REMAPPING_DATABASE: "db"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+  worship-posts-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "db"
+      DCR_REMAPPING_DATABASE: "db"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+```
