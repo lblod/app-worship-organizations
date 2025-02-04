@@ -22,7 +22,7 @@ Update `docker-compose.override.yml` to remove the config of `worship-services-s
   worship-services-sensitive-consumer:
     environment:
       DCR_SYNC_BASE_URL: 'https://loket.lblod.info/' # The endpoint of your choice
-      DCR_SYNC_LOGIN_ENDPOINT: 'https://loket.lblod.info/sync/worship-services-sensitive-deltas/login'
+      DCR_SYNC_LOGIN_ENDPOINT: 'https://loket.lblod.info/sync/worship-services-sensitive/login'
       DCR_SECRET_KEY: "the-key-of-interest"
       DCR_LANDING_ZONE_DATABASE: "triplestore"
       DCR_REMAPPING_DATABASE: "triplestore"
