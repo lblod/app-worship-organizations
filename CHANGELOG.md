@@ -21,8 +21,8 @@ Update `docker-compose.override.yml` to remove the config of `worship-services-s
 ```
   worship-services-sensitive-consumer:
     environment:
-      DCR_SYNC_BASE_URL: 'https://loket.lblod.info/' # The endpoint of your choice
-      DCR_SYNC_LOGIN_ENDPOINT: 'https://loket.lblod.info/sync/worship-services-sensitive/login'
+      DCR_SYNC_BASE_URL: "https://loket.lokaalbestuur.vlaanderen.be" # The endpoint of your choice
+      DCR_SYNC_LOGIN_ENDPOINT: "https://loket.lokaalbestuur.vlaanderen.be/sync/worship-services-sensitive/login"
       DCR_SECRET_KEY: "the-key-of-interest"
       DCR_LANDING_ZONE_DATABASE: "triplestore"
       DCR_REMAPPING_DATABASE: "triplestore"
@@ -30,7 +30,7 @@ Update `docker-compose.override.yml` to remove the config of `worship-services-s
       DCR_DISABLE_INITIAL_SYNC: "false"
   worship-posts-consumer:
     environment:
-      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info/"
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be"
       DCR_LANDING_ZONE_DATABASE: "triplestore"
       DCR_REMAPPING_DATABASE: "triplestore"
       DCR_DISABLE_DELTA_INGEST: "true"
@@ -46,8 +46,8 @@ Then, update `docker-compose.override.yml` to:
 ```
   worship-services-sensitive-consumer:
     environment:
-      DCR_SYNC_BASE_URL: "https://loket.lblod.info" # or another endpoint
-      DCR_SYNC_LOGIN_ENDPOINT: "https://loket.lblod.info/sync/worship-services-sensitive/login" # or another endpoint
+      DCR_SYNC_BASE_URL: "https://loket.lokaalbestuur.vlaanderen.be" # The endpoint of your choice
+      DCR_SYNC_LOGIN_ENDPOINT: "https://loket.lokaalbestuur.vlaanderen.be/sync/worship-services-sensitive/login"
       DCR_SECRET_KEY: "key-of-the-producer"
       DCR_LANDING_ZONE_DATABASE: "db"
       DCR_REMAPPING_DATABASE: "db"
@@ -55,7 +55,7 @@ Then, update `docker-compose.override.yml` to:
       DCR_DISABLE_INITIAL_SYNC: "false"
   worship-posts-consumer:
     environment:
-      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info/"
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be"
       DCR_LANDING_ZONE_DATABASE: "db"
       DCR_REMAPPING_DATABASE: "db"
       DCR_DISABLE_DELTA_INGEST: "false"
