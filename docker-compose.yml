@@ -153,11 +153,6 @@ services:
     links:
       - db:database
     restart: always
-  reasoner:
-    image: eyereasoner/reasoning-service:increased-stack-limit
-    volumes:
-      - ./config/reasoner:/config
-    restart: always
   privacy:
     image: lblod/wop-privacy-centric-service:0.1.2
     environment:
