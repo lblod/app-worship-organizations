@@ -161,7 +161,7 @@ services:
       - db:database
     restart: always
   positions-dispatcher:
-    image: lblod/worship-positions-graph-dispatcher-service:1.0.1
+    image: lblod/worship-positions-graph-dispatcher-service:1.1.0
     environment:
       DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
     links:
