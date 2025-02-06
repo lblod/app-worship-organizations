@@ -1,0 +1,10 @@
+CONSTRUCT {
+  ?s ?p ?o.
+} WHERE {
+  ?s a <http://schema.org/ContactPoint>;
+    ?p ?o.
+
+ FILTER NOT EXISTS {
+   ?s ?p "" .
+ }
+}
