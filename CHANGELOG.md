@@ -2,8 +2,12 @@
 ## Unreleased
 ### Backend
   - Upgraded `worship-posts-consumer` and `worship-services-sensitive-consumer` [DL-6424]
+  - Bump core services for maintenance [DL-6247]
 
 ### Deploy notes
+
+#### Consumer bumps
+
 We are going to get rid of the database so first, make sure you create and store a backup
 ```
 # Create the backup
@@ -62,6 +66,13 @@ Then, update `docker-compose.override.yml` to:
       DCR_DISABLE_INITIAL_SYNC: "false"
 ```
 And to finish:
+```
+drc up -d
+```
+
+#### Other core services bump
+
+Should have been taken care of during the consumer bumps. But if ran separately, don't forget to run:
 ```
 drc up -d
 ```
