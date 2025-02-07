@@ -188,6 +188,9 @@ services:
     environment:
       DCR_SERVICE_NAME: "worship-services-sensitive-consumer"
       DCR_SYNC_BASE_URL: "https://loket.lblod.info/"
+
+      DCR_SYNC_LOGIN_ENDPOINT: "https://loket.lblod.info/sync/worship-services-sensitive/login"
+      DCR_SECRET_KEY: "<override with secret key>"
       DCR_SYNC_FILES_PATH: "/sync/worship-services-sensitive/files"
       DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/WorshipServicesSensitiveCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/wsSensitive"
