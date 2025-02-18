@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-worship-organizations:1.2.1
+    image: lblod/frontend-worship-organizations:1.2.2
     volumes:
       - ./config/frontend/add-x-frame-options-header.conf:/config/add-x-frame-options.conf
     environment:
@@ -23,7 +23,7 @@ services:
     restart: always
     logging: *default-logging
   identifier:
-    image: semtech/mu-identifier:1.10.1
+    image: semtech/mu-identifier:1.10.3
     environment:
       DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: '[{"variables":[],"name":"public"}]'
       SESSION_COOKIE_SECURE: "on"
@@ -61,7 +61,7 @@ services:
     restart: always
     logging: *default-logging
   migrations:
-    image: semtech/mu-migrations-service:0.7.0
+    image: semtech/mu-migrations-service:0.9.0
     links:
       - triplestore:database
     volumes:
@@ -71,7 +71,7 @@ services:
     restart: always
     logging: *default-logging
   resource:
-    image: semtech/mu-cl-resources:1.22.2
+    image: semtech/mu-cl-resources:1.26.0
     environment:
       CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
     links:
@@ -91,7 +91,7 @@ services:
     restart: always
     logging: *default-logging
   deltanotifier:
-    image: cecemel/delta-notifier:0.2.0-beta.2
+    image: semtech/mu-delta-notifier:0.4.0
     volumes:
       - ./config/delta:/config
     labels:
@@ -139,7 +139,7 @@ services:
     restart: always
     logging: *default-logging
   file:
-    image: semtech/mu-file-service:3.2.0
+    image: semtech/mu-file-service:3.4.0
     volumes:
       - ./data/files:/share
     labels:
@@ -153,11 +153,6 @@ services:
     links:
       - db:database
     restart: always
-  reasoner:
-    image: eyereasoner/reasoning-service:increased-stack-limit
-    volumes:
-      - ./config/reasoner:/config
-    restart: always
   privacy:
     image: lblod/wop-privacy-centric-service:0.1.2
     environment:
@@ -166,7 +161,7 @@ services:
       - db:database
     restart: always
   positions-dispatcher:
-    image: lblod/worship-positions-graph-dispatcher-service:1.0.1
+    image: lblod/worship-positions-graph-dispatcher-service:1.1.0
     environment:
       DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
     links:
@@ -176,7 +171,9 @@ services:
     restart: always
     logging: *default-logging
   update-bestuurseenheid-mock-login:
-    image: lblod/update-bestuurseenheid-mock-login-service:0.1.1
+    image: lblod/update-bestuurseenheid-mock-login-service:0.5.0
+    environment:
+      RUN_CRON_ON_START: "true"
     volumes:
       - ./config/mock-login:/config
     links:
@@ -189,10 +186,13 @@ services:
   # DELTAS
   ################################################################################
   worship-services-sensitive-consumer:
-    image: lblod/delta-consumer:0.0.25
+    image: lblod/delta-consumer:0.1.1
     environment:
-      DCR_SYNC_BASE_URL: "https://loket.lblod.info/"
       DCR_SERVICE_NAME: "worship-services-sensitive-consumer"
+      DCR_SYNC_BASE_URL: "https://loket.lblod.info/"
+
+      DCR_SYNC_LOGIN_ENDPOINT: "https://loket.lblod.info/sync/worship-services-sensitive/login"
+      DCR_SECRET_KEY: "<override with secret key>"
       DCR_SYNC_FILES_PATH: "/sync/worship-services-sensitive/files"
       DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/WorshipServicesSensitiveCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/wsSensitive"
@@ -201,20 +201,26 @@ services:
       DCR_DISABLE_INITIAL_SYNC: "true"
       DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "false"
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+      DCR_DELTA_JOBS_RETENTION_PERIOD: "30"
+      DCR_ENABLE_TRIPLE_REMAPPING: "true"
+      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/worship-services-sensitive"
+      DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/ingest"
+      DCR_BATCH_SIZE: 1000
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
+      SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/consumer/worship-services-sensitive:/config/triples-dispatching/custom-dispatching
+      - ./config/consumer/worship-services-sensitive/mapping:/config/mapping
       - ./data/files/consumer-files/worship-services-sensitive:/consumer-files/
     links:
       - db:database
+      - triplestore:virtuoso
     restart: always
     logging: *default-logging
   worship-posts-consumer:
-    image: lblod/delta-consumer:0.0.25
+    image: lblod/delta-consumer:0.1.1
     environment:
-      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info/"
       DCR_SERVICE_NAME: "worship-posts-consumer"
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info/"
       DCR_SYNC_FILES_PATH: "/sync/worship-posts/files"
       DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/WorshipPostsCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/worshipPosts"
@@ -223,12 +229,18 @@ services:
       DCR_DISABLE_INITIAL_SYNC: "true"
       DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "false"
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+      DCR_DELTA_JOBS_RETENTION_PERIOD: "30"
+      DCR_ENABLE_TRIPLE_REMAPPING: "true"
+      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/worship-posts"
+      DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/ingest"
+      DCR_BATCH_SIZE: 1000
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
+      SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/consumer/worship-posts:/config/triples-dispatching/custom-dispatching
+      - ./config/consumer/worship-posts/mapping:/config/mapping
       - ./data/files/consumer-files/worship-posts:/consumer-files/
     links:
       - db:database
+      - triplestore:virtuoso
     restart: always
     logging: *default-logging
