@@ -186,7 +186,7 @@ services:
   # DELTAS
   ################################################################################
   worship-services-sensitive-consumer:
-    image: lblod/delta-consumer:0.1.0
+    image: lblod/delta-consumer:0.1.1
     environment:
       DCR_SERVICE_NAME: "worship-services-sensitive-consumer"
       DCR_SYNC_BASE_URL: "https://loket.lblod.info/"
@@ -217,7 +217,7 @@ services:
     restart: always
     logging: *default-logging
   worship-posts-consumer:
-    image: lblod/delta-consumer:0.1.0
+    image: lblod/delta-consumer:0.1.1
     environment:
       DCR_SERVICE_NAME: "worship-posts-consumer"
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info/"
