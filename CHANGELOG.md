@@ -1,9 +1,14 @@
 # Changelog
+## Unreleased
+### Backend
+  - Bump `triplestore` to `v1.3.0-rc.1`. [DL-6398]
+### Deploy Notes
+#### Database Upgrade
+Follow the Virtuoso upgrade instructions listed [here](https://github.com/Riadabd/upgrade-virtuoso).
 ## 1.2.5 (2025-02-18)
 ### Backend
   - Upgraded `worship-posts-consumer` and `worship-services-sensitive-consumer` [DL-6424]
   - Bump core services for maintenance [DL-6247]
-  - Bump `triplestore` to `v1.3.0-rc.1`. [DL-6398]
 
 ### Deploy notes
 
@@ -77,7 +82,3 @@ Should have been taken care of during the consumer bumps. But if ran separately,
 ```
 drc up -d
 ```
-
-#### Database Upgrade
-
-Follow the Virtuoso upgrade instructions listed [here](https://github.com/Riadabd/upgrade-virtuoso).
