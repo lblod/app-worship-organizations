@@ -5,6 +5,10 @@
 ### Deploy Notes
 #### Database Upgrade
 Follow the Virtuoso upgrade instructions listed [here](https://github.com/Riadabd/upgrade-virtuoso).
+#### Changes to Worship Services Sensitive Consumer
+```shell
+drc up -d worship-services-sensitive-consumer
+```
 ## 1.2.5 (2025-02-18)
 ### Backend
   - Upgraded `worship-posts-consumer` and `worship-services-sensitive-consumer` [DL-6424]
