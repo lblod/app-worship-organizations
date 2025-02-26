@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.2.6 (2025-02-26)
 ### Backend
   - Bump `triplestore` to `v1.3.0-rc.1`. [DL-6398]
 ### Deploy Notes
