@@ -1,4 +1,11 @@
 # Changelog
+## Unreleased
+  - Updated regular database config (`virtuoso.ini`)
+### Deploy Notes
+The production instance already has the updated production config. This is intented for local, DEV and QA instances that may be using the regular configuration:
+```
+drc restart triplestore && drc logs -ft --tail=200 triplestore
+```
 ## 1.2.6 (2025-02-26)
 ### Backend
   - Bump `triplestore` to `v1.3.0-rc.1`. [DL-6398]
