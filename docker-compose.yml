@@ -47,6 +47,8 @@ services:
     volumes:
       - ./data/db:/data
       - ./config/db/virtuoso.ini:/data/virtuoso.ini
+    labels:
+      - "logging=true"
     restart: always
     logging: *default-logging
   db:
@@ -152,14 +154,20 @@ services:
     image: lblod/error-report-service:0.1.0
     links:
       - db:database
+    labels:
+      - "logging=true"
     restart: always
+    logging: *default-logging
   privacy:
     image: lblod/wop-privacy-centric-service:0.1.2
     environment:
       SESSION_GRAPH: "http://mu.semte.ch/graphs/sessions"
     links:
       - db:database
+    labels:
+      - "logging=true"
     restart: always
+    logging: *default-logging
   positions-dispatcher:
     image: lblod/worship-positions-graph-dispatcher-service:1.1.0
     environment:
@@ -214,6 +222,8 @@ services:
     links:
       - db:database
       - triplestore:virtuoso
+    labels:
+      - "logging=true"
     restart: always
     logging: *default-logging
   worship-posts-consumer:
@@ -242,5 +252,7 @@ services:
     links:
       - db:database
       - triplestore:virtuoso
+    labels:
+      - "logging=true"
     restart: always
     logging: *default-logging
