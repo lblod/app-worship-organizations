@@ -2,6 +2,7 @@
 ## Unreleased
   - Update regular database config (`virtuoso.ini`)
   - Add missing compose keys. [DL-6490]
+  - Reorganize delta consumers config to harmonize with the ecosystem
 ### Deploy Notes
 The production instance already has the updated production config. This is intented for local, DEV and QA instances that may be using the regular configuration:
 ```

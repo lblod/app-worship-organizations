@@ -217,7 +217,7 @@ services:
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/consumer/worship-services-sensitive/mapping:/config/mapping
+      - ./config/delta-consumers/worship-services-sensitive/mapping:/config/mapping
       - ./data/files/consumer-files/worship-services-sensitive:/consumer-files/
     links:
       - db:database
@@ -247,7 +247,7 @@ services:
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/consumer/worship-posts/mapping:/config/mapping
+      - ./config/delta-consumers/worship-posts/mapping:/config/mapping
       - ./data/files/consumer-files/worship-posts:/consumer-files/
     links:
       - db:database
