@@ -3,6 +3,7 @@
   - Update regular database config (`virtuoso.ini`)
   - Add missing compose keys. [DL-6490]
   - Reorganize delta consumers config to harmonize with the ecosystem
+  - Fix bug in positions-dispatcher
 ### Deploy Notes
 The production instance already has the updated production config. This is intented for local, DEV and QA instances that may be using the regular configuration:
 ```
@@ -10,6 +11,11 @@ drc restart triplestore && drc logs -ft --tail=200 triplestore
 ```
 ```
 drc up -d triplestore error-report-service privacy worship-services-sensitive-consumer worship-posts-consumer
+```
+and for the positions dispatcher fix:
+```
+drc restart migrations
+drc up -d positions-dispatcher worship-posts-consumer worship-services-sensitive-consumer
 ```
 ## 1.2.6 (2025-02-26)
 ### Backend
