@@ -169,7 +169,7 @@ services:
     restart: always
     logging: *default-logging
   positions-dispatcher:
-    image: lblod/worship-positions-graph-dispatcher-service:1.1.0
+    image: lblod/worship-positions-graph-dispatcher-service:1.1.0 # TODO Bump when https://github.com/lblod/worship-positions-graph-dispatcher-service/pull/4 released
     environment:
       DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
     links:
@@ -194,11 +194,10 @@ services:
   # DELTAS
   ################################################################################
   worship-services-sensitive-consumer:
-    image: lblod/delta-consumer:0.1.1
+    image: lblod/delta-consumer:0.1.4
     environment:
       DCR_SERVICE_NAME: "worship-services-sensitive-consumer"
       DCR_SYNC_BASE_URL: "https://loket.lblod.info/"
-
       DCR_SYNC_LOGIN_ENDPOINT: "https://loket.lblod.info/sync/worship-services-sensitive/login"
       DCR_SECRET_KEY: "<override with secret key>"
       DCR_SYNC_FILES_PATH: "/sync/worship-services-sensitive/files"
@@ -227,7 +226,7 @@ services:
     restart: always
     logging: *default-logging
   worship-posts-consumer:
-    image: lblod/delta-consumer:0.1.1
+    image: lblod/delta-consumer:0.1.4
     environment:
       DCR_SERVICE_NAME: "worship-posts-consumer"
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info/"
