@@ -169,7 +169,7 @@ services:
     restart: always
     logging: *default-logging
   positions-dispatcher:
-    image: lblod/worship-positions-graph-dispatcher-service:1.1.0 # TODO Bump when https://github.com/lblod/worship-positions-graph-dispatcher-service/pull/4 released
+    image: lblod/worship-positions-graph-dispatcher-service:1.1.1
     environment:
       DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
     links:
