@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.2.7 (2025-04-15)
   - Update regular database config (`virtuoso.ini`)
   - Add missing compose keys. [DL-6490]
   - Reorganize delta consumers config to harmonize with the ecosystem
