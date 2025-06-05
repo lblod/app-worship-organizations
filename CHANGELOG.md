@@ -1,4 +1,13 @@
 # Changelog
+## Unreleased
+  - Bump frontend to v1.2.3 [DL-5635]
+
+### Deploy Notes
+
+```
+drc up -d frontend
+```
+
 ## 1.2.7 (2025-04-15)
   - Update regular database config (`virtuoso.ini`)
   - Add missing compose keys. [DL-6490]
