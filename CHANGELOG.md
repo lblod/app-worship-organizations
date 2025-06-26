@@ -1,5 +1,7 @@
 # Changelog
 ## Unreleased
+
+## 1.2.9 (2025-06-26)
 ### Frontend
 - Bump to [v1.2.4](https://github.com/lblod/frontend-worship-organizations/blob/v1.2.4/CHANGELOG.md#124-2025-06-26)
 ### Deploy Notes
