@@ -1,9 +1,16 @@
 # Changelog
+## Unreleased
+### Frontend
+- Bump to [v1.2.4](https://github.com/lblod/frontend-worship-organizations/blob/v1.2.4/CHANGELOG.md#124-2025-06-26)
+### Deploy Notes
+```
+drc pull frontend; drc up -d frontend
+```
+
 ## 1.2.8 (2025-06-13)
-  - Bump frontend to v1.2.3 [DL-5635]
+- Bump frontend to v1.2.3 [DL-5635]
 
 ### Deploy Notes
-
 ```
 drc up -d frontend
 ```
