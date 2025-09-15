@@ -218,6 +218,30 @@ defmodule Dispatcher do
   match "/request-reasons/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/request-reasons/"
   end
+
+  ###############
+  # DASHBOARD
+  ###############
+  match "/jobs/*path", %{accept: [:json], layer: :api} do
+    Proxy.forward(conn, path, "http://cache/jobs/")
+  end
+
+  match "/tasks/*path", %{accept: [:json], layer: :api} do
+    Proxy.forward(conn, path, "http://cache/tasks/")
+  end
+
+  match "/job-errors/*path", %{accept: [:json], layer: :api} do
+    Proxy.forward(conn, path, "http://cache/job-errors/")
+  end
+
+  match "/data-containers/*path", %{accept: [:json], layer: :api} do
+    Proxy.forward(conn, path, "http://cache/data-containers/")
+  end
+
+  match "/reports/*path", %{accept: [:json], layer: :api} do
+    Proxy.forward(conn, path, "http://resource/reports/")
+  end
+
   ###############
   # LOGIN
   ###############
@@ -236,6 +260,10 @@ defmodule Dispatcher do
   match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
     send_resp( conn, 404, "{\"error\": {\"code\": 404}")
    end
+
+  match "/sessions/*path", %{ reverse_host: ["dashboard" | _rest] } do
+    Proxy.forward conn, path, "http://dashboard-login/sessions/"
+  end
 
   match "/sessions/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://login/sessions/"
@@ -291,6 +319,20 @@ defmodule Dispatcher do
   ###############################################################
   # frontend layer
   ###############################################################
+
+  get "/assets/*path",  %{ reverse_host: ["dashboard" | _rest], layer: :api }  do
+    forward conn, path, "http://frontend-dashboard/assets/"
+  end
+
+  get "/@appuniversum/*path", %{ reverse_host: ["dashboard" | _rest], layer: :api} do
+    forward conn, path, "http://frontend-dashboard/@appuniversum/"
+  end
+
+  match "/*_path", %{ reverse_host: ["dashboard" | _rest], layer: :api } do
+    # *_path allows a path to be supplied, but will not yield
+    # an error that we don't use the path variable.
+    forward conn, [], "http://frontend-dashboard/index.html"
+  end
 
   match "/assets/*path", %{ layer: :api } do
     Proxy.forward conn, path, "http://frontend/assets/"
