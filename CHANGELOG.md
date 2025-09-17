@@ -5,8 +5,7 @@
 - Set up the dashboard app (OP-3561)
 
 ### Deploy notes
-
-#### Dashboard
+`drc up -d frontend-dashboard dashboard-login identifier; drc restart dispatcher resource db`
 
 ## 1.2.9 (2025-06-26)
 ### Frontend
