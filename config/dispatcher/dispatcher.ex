@@ -314,6 +314,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/distributions/"
   end
 
+  #################################################################
+  #  Exports
+  #################################################################
+
+  get "/download-exports/*path" do
+    Proxy.forward conn, path, "http://download-exports/"
+  end
+
   ###############################################################
   # frontend layer
   ###############################################################
