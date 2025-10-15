@@ -1,5 +1,11 @@
 # Changelog
 ## Unreleased
+### Frontend
+- Bump frontend
+### Deploy Notes
+```
+drc pull frontend; drc up -d frontend
+```
 
 ## 1.2.9 (2025-06-26)
 ### Frontend
