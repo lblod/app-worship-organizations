@@ -1,5 +1,11 @@
 # Changelog
-## Unreleased
+## 1.2.10 (2025-10-15)
+### Frontend
+- Bump frontend
+### Deploy Notes
+```
+drc pull frontend; drc up -d frontend
+```
 
 ### Backend
 - Set up the dashboard app (OP-3561)
