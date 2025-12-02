@@ -1,4 +1,11 @@
 # Changelog
+## Unreleased
+### Backend
+- Set up the dashboard app (OP-3561)
+
+### Deploy notes
+`drc up -d frontend-dashboard dashboard-login identifier; drc restart dispatcher resource db`
+
 ## 1.2.10 (2025-10-15)
 ### Frontend
 - Bump frontend
@@ -6,13 +13,6 @@
 ```
 drc pull frontend; drc up -d frontend
 ```
-
-### Backend
-- Set up the dashboard app (OP-3561)
-
-### Deploy notes
-`drc up -d frontend-dashboard dashboard-login identifier; drc restart dispatcher resource db`
-
 ## 1.2.9 (2025-06-26)
 ### Frontend
 - Bump to [v1.2.4](https://github.com/lblod/frontend-worship-organizations/blob/v1.2.4/CHANGELOG.md#124-2025-06-26)
