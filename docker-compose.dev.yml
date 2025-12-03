@@ -41,6 +41,8 @@ services:
     restart: "no"
   login:
     restart: "no"
+  login-dashboard:
+    restart: "no"
   accountdetail:
     restart: "no"
   uri-info:
