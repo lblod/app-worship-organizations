@@ -66,7 +66,7 @@ defmodule Acl.UserGroups.Config do
       query: "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
         SELECT DISTINCT ?session WHERE {
           VALUES ?session { <SESSION_ID> }
-          ?session ext:sessionRole \"LoketLB-AdminDashboardContactOrganisatiegegevensGebruiker\" .
+          ?session ext:sessionRole \"LoketLB-eredienstOrganisatiesGebruiker\" .
         }"
     }
   end

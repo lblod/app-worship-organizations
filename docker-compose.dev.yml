@@ -4,6 +4,10 @@ services:
   frontend:
     image: lblod/frontend-worship-organizations:latest
     restart: "no"
+  frontend-dashboard:
+    # environment:
+    #   EMBER_LOGIN_ROUTE: "mock-login" 
+    restart: "no"
   identifier:
     restart: "no"
     ports:

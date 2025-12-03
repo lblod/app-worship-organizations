@@ -23,7 +23,7 @@ services:
     restart: always
     logging: *default-logging
   frontend-dashboard:
-    image: lblod/frontend-dashboard:1.9.0
+    image: lblod/frontend-dashboard:1.10.0
     environment:
       EMBER_LOGIN_ROUTE: "acmidm-login"
       EMBER_DISABLE_ERRORS: "true"
@@ -32,6 +32,7 @@ services:
       EMBER_ACMIDM_REDIRECT_URL: "<REDIRECT_URL>"
       EMBER_ACMIDM_LOGOUT_URL: "<LOGOUT_URL>"
       EMBER_ACMIDM_SCOPE: "openid rrn profile vo abb_orgcontactgegevens"
+      EMBER_ENGLISH_ACCOUNTS_MODEL: true
     labels:
       - "logging=true"
     restart: always
