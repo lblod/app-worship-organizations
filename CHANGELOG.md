@@ -38,6 +38,7 @@ Link the new domain name to PROD + DNS config to the server
 ```
 drc pull frontend; drc up -d frontend
 ```
+
 ## 1.2.9 (2025-06-26)
 ### Frontend
 - Bump to [v1.2.4](https://github.com/lblod/frontend-worship-organizations/blob/v1.2.4/CHANGELOG.md#124-2025-06-26)
@@ -45,7 +46,6 @@ drc pull frontend; drc up -d frontend
 ```
 drc pull frontend; drc up -d frontend
 ```
-
 
 ## 1.2.8 (2025-06-13)
 - Bump frontend to v1.2.3 [DL-5635]
