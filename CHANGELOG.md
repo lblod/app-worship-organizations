@@ -3,6 +3,25 @@
 ### Backend
 - Set up the dashboard app (OP-3561)
 
+#### QA
+Configure the environment variables for QA ACM/IDM:
+```
+  frontend-dashboard:
+    environment:
+      EMBER_ACMIDM_CLIENT_ID: "52946daf-6d10-454e-8a6c-00fb6dff45ad"
+      EMBER_ACMIDM_BASE_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
+      EMBER_ACMIDM_REDIRECT_URL: "https://dashboard.organisaties.lokaalbestuur.lblod.info/authorization/callback"
+      EMBER_ACMIDM_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
+      EMBER_ACMIDM_SCOPE: "openid rrn profile vo abb_orgcontactgegevens"
+
+  login-dashboard:
+    environment:
+      MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op/"
+      MU_APPLICATION_AUTH_CLIENT_ID: "52946daf-6d10-454e-8a6c-00fb6dff45ad"
+      MU_APPLICATION_AUTH_REDIRECT_URI: "https://dashboard.organisaties.lokaalbestuur.lblod.info/authorization/callback"
+      MU_APPLICATION_AUTH_CLIENT_SECRET: "secret" # see ticket for secret
+```
+
 ### Deploy notes
 `drc up -d report-generation frontend-dashboard dashboard-login identifier; drc restart dispatcher resource db`
 
