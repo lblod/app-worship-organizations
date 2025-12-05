@@ -4,7 +4,7 @@
 - Set up the dashboard app (OP-3561)
 
 #### QA
-Configure the environment variables for QA ACM/IDM:
+Add the environment variables for ACM/IDM QA:
 ```
   frontend-dashboard:
     environment:
@@ -21,6 +21,12 @@ Configure the environment variables for QA ACM/IDM:
       MU_APPLICATION_AUTH_REDIRECT_URI: "https://dashboard.organisaties.lokaalbestuur.lblod.info/authorization/callback"
       MU_APPLICATION_AUTH_CLIENT_SECRET: "secret" # see ticket for secret
 ```
+Link the new domain name to QA
+
+#### PROD
+Add the same variables as for QA to PROD, once their values are known
+
+Link the new domain name to PROD + DNS config to the server
 
 ### Deploy notes
 `drc up -d report-generation frontend-dashboard dashboard-login identifier; drc restart dispatcher resource db`
