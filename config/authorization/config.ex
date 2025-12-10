@@ -60,6 +60,17 @@ defmodule Acl.UserGroups.Config do
     }"
   end
 
+  defp can_access_dashboard() do
+    %AccessByQuery{
+      vars: [],
+      query: "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+        SELECT DISTINCT ?session WHERE {
+          VALUES ?session { <SESSION_ID> }
+          ?session ext:sessionRole \"LoketLB-AdminDashboardWOP\" .
+        }"
+    }
+  end
+  
   def user_groups do
     [
       # // PUBLIC
@@ -115,6 +126,35 @@ defmodule Acl.UserGroups.Config do
                     constraint: %ResourceConstraint{
                       resource_types: @protected_resource_type
                     } } ] },
+      # // dashboard users
+      %GroupSpec{
+        name: "o-admin-rwf",
+        useage: [:read, :write, :read_for_write],
+        access: can_access_dashboard(),
+        graphs: [
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/reports",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://lblod.data.gift/vocabularies/reporting/Report",
+                "http://open-services.net/ns/core#Error",
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#DataContainer",
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
+              ]
+            }
+          },
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/system/jobs",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://vocab.deri.ie/cogs#Job",
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#DataContainer",
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
+              ]
+            }
+          },
+        ]
+      },
       # // CLEANUP
       #
       %GraphCleanup{

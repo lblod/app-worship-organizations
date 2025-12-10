@@ -1,4 +1,42 @@
 # Changelog
+## Unreleased
+### Backend
+- Set up the dashboard app (OP-3561)
+
+##### Dashboard domains
+To configure the domain name that's used by the dashboard frontend, you can add it to the `VIRTUAL_HOST` and `LETSENCRYPT_HOST` environment variables of the identifier service.
+- DEV domain: dashboard.dev.organisaties.lokaalbestuur.lblod.info (Also put the mock-login in de docker-compose.override.yml)
+- QA domain: dashboard.organisaties.lokaalbestuur.lblod.info
+- PROD domain dashboard.organisaties.lokaalbestuur.vlaanderen.be 
+
+#### QA
+Add the environment variables for ACM/IDM QA:
+```
+  frontend-dashboard:
+    environment:
+      EMBER_ACMIDM_CLIENT_ID: "52946daf-6d10-454e-8a6c-00fb6dff45ad"
+      EMBER_ACMIDM_BASE_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
+      EMBER_ACMIDM_REDIRECT_URL: "https://dashboard.organisaties.lokaalbestuur.lblod.info/authorization/callback"
+      EMBER_ACMIDM_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
+      EMBER_ACMIDM_SCOPE: "openid rrn profile vo abb_orgcontactgegevens"
+
+  login-dashboard:
+    environment:
+      MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op/"
+      MU_APPLICATION_AUTH_CLIENT_ID: "52946daf-6d10-454e-8a6c-00fb6dff45ad"
+      MU_APPLICATION_AUTH_REDIRECT_URI: "https://dashboard.organisaties.lokaalbestuur.lblod.info/authorization/callback"
+      MU_APPLICATION_AUTH_CLIENT_SECRET: "secret" # see ticket for secret
+```
+Link the new domain name to QA
+
+#### PROD
+Add the same variables as for QA to PROD, once their values are known
+
+Link the new domain name to PROD + DNS config to the server
+
+### Deploy notes
+`drc up -d report-generation frontend-dashboard dashboard-login identifier; drc restart dispatcher resource db`
+
 ## 1.2.10 (2025-10-15)
 ### Frontend
 - Bump frontend
