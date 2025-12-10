@@ -3,6 +3,12 @@
 ### Backend
 - Set up the dashboard app (OP-3561)
 
+##### Dashboard domains
+To configure the domain name that's used by the dashboard frontend, you can add it to the `VIRTUAL_HOST` and `LETSENCRYPT_HOST` environment variables of the identifier service.
+- DEV domain: dashboard.dev.organisaties.lokaalbestuur.lblod.info (Also put the mock-login in de docker-compose.override.yml)
+- QA domain: dashboard.organisaties.lokaalbestuur.lblod.info
+- PROD domain dashboard.organisaties.lokaalbestuur.vlaanderen.be 
+
 #### QA
 Add the environment variables for ACM/IDM QA:
 ```
