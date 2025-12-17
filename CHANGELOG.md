@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.2.11 (2025-12-17)
 ### Backend
 - Set up the dashboard app (OP-3561)
 
