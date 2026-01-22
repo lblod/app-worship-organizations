@@ -1,4 +1,11 @@
 # Changelog
+## unreleased
+### Backend
+- sparql-parser (DL-6572)
+
+### Deploy notes
+`drc up -d db`
+
 ## 1.2.11 (2025-12-17)
 ### Backend
 - Set up the dashboard app (OP-3561)
