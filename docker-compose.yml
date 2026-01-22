@@ -82,12 +82,13 @@ services:
     restart: always
     logging: *default-logging
   db:
-    image: semtech/mu-authorization:feature-service-roam-r1.1
+    image: semtech/sparql-parser:0.0.15
     environment:
       MU_SPARQL_ENDPOINT: "http://triplestore:8890/sparql"
       ERROR_ON_UNWRITTEN_DATA: "true"
     volumes:
       - ./config/authorization:/config
+      - ./data/authorization:/data
     labels:
       - "logging=true"
     restart: always
