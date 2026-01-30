@@ -1,5 +1,5 @@
 # Changelog
-## unreleased
+## 1.2.12 (2026-01-30)
 ### Backend
 - sparql-parser (DL-6572)
 
