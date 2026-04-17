@@ -1,4 +1,13 @@
 # Changelog
+## Unreleased
+### Frontend
+- Bump frontend to v1.2.6 [DL-7267]
+
+### Deploy Notes
+```
+drc pull frontend && drc up -d frontend
+```
+
 ## 1.2.12 (2026-01-30)
 ### Backend
 - sparql-parser (DL-6572)
