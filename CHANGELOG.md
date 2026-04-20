@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.2.13 (2026-04-20)
 ### Frontend
 - Bump frontend to v1.2.6 [DL-7267]
 
