@@ -1,4 +1,15 @@
 # Changelog
+
+## 1.3.0 (2026-05-07)
+- Fix bug in delta-notification rules [OP-3796]
+- Bump worship-postitions-dispatcher [OP-3796]
+
+### Deploy notes
+```
+drc restart delta-notifier
+drc up -d positions-dispatcher
+```
+
 ## 1.2.15 (2026-05-07)
 - Bump virtuoso to v1.3.1 [DL-7345]
 ### Deploy notes
