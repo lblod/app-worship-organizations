@@ -198,7 +198,7 @@ services:
     restart: always
     logging: *default-logging
   positions-dispatcher:
-    image: lblod/worship-positions-graph-dispatcher-service:1.2.0
+    image: lblod/worship-positions-graph-dispatcher-service:1.2.1
     environment:
       DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
       MANUAL_DISPATCH_BATCH_SIZE: 1000
