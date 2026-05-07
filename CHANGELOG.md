@@ -1,4 +1,11 @@
 # Changelog
+## 1.2.15 (2026-05-07)
+- Bump virtuoso to v1.3.1 [DL-7345]
+### Deploy notes
+```
+drc up -d triplestore
+```
+
 ## 1.2.14 (2026-05-07)
 - Bump positions dispatcher: [OP-3796]
 ### Deploy notes
