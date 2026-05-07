@@ -1,4 +1,14 @@
 # Changelog
+## 1.2.14 (2026-05-07)
+- Bump positions dispatcher: [OP-3796]
+### Deploy notes
+#### Prod only step
+Ensure the `docker-compose.yml` has no uncommited changes regarding the positions dispatcher.
+#### All envs
+```
+drc up -d positions-dispatcher
+```
+
 ## 1.2.13 (2026-04-20)
 ### Frontend
 - Bump frontend to v1.2.6 [DL-7267]
