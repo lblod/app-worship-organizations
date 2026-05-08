@@ -1,4 +1,11 @@
 # Changelog
+## Unreleased
+- Bump acm-login service [DL-7346]
+## Deploy notes
+```
+drc up -d login-dashboard login
+```
+
 
 ## 1.3.0 (2026-05-07)
 - Fix bug in delta-notification rules [OP-3796]
