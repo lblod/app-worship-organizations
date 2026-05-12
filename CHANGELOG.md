@@ -1,9 +1,12 @@
 # Changelog
 ## Unreleased
 - Bump acm-login service [DL-7346]
+- Bump frontend to v1.3.0 [OP-3643] [OP-3642]
+
 ## Deploy notes
 ```
 drc up -d login-dashboard login
+drc pull frontend && drc up -d frontend
 ```
 
 
