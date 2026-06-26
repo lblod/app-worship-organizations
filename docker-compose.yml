@@ -198,10 +198,11 @@ services:
     restart: always
     logging: *default-logging
   positions-dispatcher:
-    image: lblod/worship-positions-graph-dispatcher-service:1.2.2
+    image: lblod/worship-positions-graph-dispatcher-service:1.2.3
     environment:
       DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
       ENABLE_HEALING: 'true'
+      ENABLE_ORPHAN_CLEANUP: 'true'
       MANUAL_DISPATCH_BATCH_SIZE: 1000
       NUMBER_OF_HEALING_QUEUES: 10
     links:
