@@ -7,7 +7,7 @@ CONSTRUCT {
   ?s a <http://data.lblod.info/vocabularies/erediensten/EredienstMandataris>;
     ?p ?o.
 
- FILTER (?p NOT IN (ch:startdatum, ch:eindedatum, ere:geplandeEinddatumAanstelling))
+ FILTER (?p NOT IN (ch:startdatum, ch:eindedatum))
 
  FILTER NOT EXISTS {
    ?s ?p "" .

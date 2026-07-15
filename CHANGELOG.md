@@ -3,13 +3,20 @@
 - Bump acm-login service [DL-7346]
 - frontend [v1.4.0](https://github.com/lblod/frontend-worship-organizations/blob/1d10fa2420b31ef395aca3644fb1ade0b9e32e4c/CHANGELOG.md#140-2026-06-05) ,[v1.3.0](https://github.com/lblod/frontend-worship-organizations/blob/1d10fa2420b31ef395aca3644fb1ade0b9e32e4c/CHANGELOG.md#130-2026-05-12) 
 - Bump worship-positions-graph-dispatcher-service [DL-7344] [OP-3825]
+- Fix an issue where the "Geplande einddatum" wasn't shown for worship mandatees [OP-3826]
 
 ## Deploy notes
 ```
+drc restart migrations
 drc up -d login-dashboard login positions-dispatcher
 drc pull frontend && drc up -d frontend
-```
 
+# if OP-3825 was deployed before OP-3826
+drc exec positions-dispatcher curl -X POST "http://localhost/manual-dispatch?type=http://data.lblod.info/vocabularies/erediensten/EredienstMandataris"
+
+# If OP-3825 wasn't deployed yet
+drc exec positions-dispatcher curl -X POST "http://localhost/manual-dispatch"
+```
 
 ## 1.3.0 (2026-05-07)
 - Fix bug in delta-notification rules [OP-3796]
