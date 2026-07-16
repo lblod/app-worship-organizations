@@ -10,6 +10,7 @@
 drc restart migrations
 drc up -d login-dashboard login positions-dispatcher
 drc pull frontend && drc up -d frontend
+drc restart worship-services-sensitive-consumer
 
 # if OP-3825 was deployed before OP-3826
 drc exec positions-dispatcher curl -X POST "http://localhost/manual-dispatch?type=http://data.lblod.info/vocabularies/erediensten/EredienstMandataris"
