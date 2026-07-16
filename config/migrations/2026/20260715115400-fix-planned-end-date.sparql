@@ -1,0 +1,10 @@
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/ingest> {
+    ?s <http://data.lblod.info/vocabularies/erediensten/geplandeEinddatumAanstelling> ?o .
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/landing-zone/worship-services-sensitive> {
+    ?s <http://data.lblod.info/vocabularies/erediensten/geplandeEinddatumAanstelling> ?o .
+  }
+}
