@@ -1,5 +1,5 @@
 # Changelog
-## 1.4.1
+## 1.4.1 (2026-07-27)
 - Fix an issue where the "Geplande einddatum" wasn't shown for worship mandatees [OP-3826]
 
 ## Deploy notes
