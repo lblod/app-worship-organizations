@@ -1,4 +1,13 @@
 # Changelog
+## Unreleased
+- Bump worship-positions-graph-dispatcher-service [OP-3854]
+
+## Deploy notes
+```
+drc up -d positions-dispatcher
+drc exec positions-dispatcher curl -X POST "http://localhost/manual-heal"
+```
+
 ## 1.4.1 (2026-07-27)
 - Fix an issue where the "Geplande einddatum" wasn't shown for worship mandatees [OP-3826]
 

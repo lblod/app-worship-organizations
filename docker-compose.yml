@@ -204,7 +204,7 @@ services:
       ENABLE_HEALING: 'true'
       ENABLE_ORPHAN_CLEANUP: 'true'
       MANUAL_DISPATCH_BATCH_SIZE: 1000
-      NUMBER_OF_HEALING_QUEUES: 10
+      NUMBER_OF_HEALING_QUEUES: 3
     links:
       - db:database
     labels:
