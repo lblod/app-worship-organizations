@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.4.2 (2026-08-12)
 - Bump worship-positions-graph-dispatcher-service [OP-3854]
 
 ## Deploy notes
