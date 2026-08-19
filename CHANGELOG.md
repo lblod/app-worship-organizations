@@ -1,4 +1,7 @@
 # Changelog
+## 1.4.3 (2026-08-19)
+- Bump frontend [DL-7505]
+
 ## 1.4.2 (2026-08-12)
 - Bump worship-positions-graph-dispatcher-service [OP-3854]
 
