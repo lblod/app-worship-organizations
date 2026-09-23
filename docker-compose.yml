@@ -151,6 +151,15 @@ services:
     logging: *default-logging
     links:
       - db:database
+
+  db-cleanup:
+    image: lblod/db-cleanup-service:0.5.1
+    links:
+      - triplestore:database
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   accountdetail:
     image: lblod/account-detail-service:0.1.0
     labels:
