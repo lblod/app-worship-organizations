@@ -1,4 +1,11 @@
 # Changelog
+## v1.5.0 (2026-10-02)
+- [DL-7348] Add db-cleanup service + cleanup job that removes sessions older then 3 months
+### Deploy notes
+```bash
+drc up -d 
+drc restart migrations resource cache
+```
 ## 1.4.3 (2026-08-19)
 - Bump frontend [DL-7505]
 

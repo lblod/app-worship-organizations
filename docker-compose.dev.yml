@@ -20,6 +20,8 @@ services:
     restart: "no"
   db:
     restart: "no"
+  db-cleanup:
+    restart: "no"
   migrations:
     volumes:
       - ./config/dev-migrations:/data/migrations/dev/
