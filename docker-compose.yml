@@ -210,8 +210,8 @@ services:
     image: lblod/worship-positions-graph-dispatcher-service:1.2.6
     environment:
       DIRECT_DATABASE_ENDPOINT: "http://triplestore:8890/sparql"
-      ENABLE_HEALING: 'true'
-      ENABLE_ORPHAN_CLEANUP: 'true'
+      ENABLE_HEALING: "true"
+      ENABLE_ORPHAN_CLEANUP: "true"
       MANUAL_DISPATCH_BATCH_SIZE: 1000
       NUMBER_OF_HEALING_QUEUES: 3
     links:
@@ -260,7 +260,7 @@ services:
   # DELTAS
   ################################################################################
   worship-services-sensitive-consumer:
-    image: lblod/delta-consumer:0.1.4
+    image: lblod/delta-consumer:0.4.1
     environment:
       DCR_SERVICE_NAME: "worship-services-sensitive-consumer"
       DCR_SYNC_BASE_URL: "https://loket.lblod.info/"
@@ -292,7 +292,7 @@ services:
     restart: always
     logging: *default-logging
   worship-posts-consumer:
-    image: lblod/delta-consumer:0.1.4
+    image: lblod/delta-consumer:0.4.1
     environment:
       DCR_SERVICE_NAME: "worship-posts-consumer"
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info/"
